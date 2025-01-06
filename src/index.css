@@ -4,6 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .circle-blur-green {
+    background: radial-gradient(
+      circle at 50% 50%,
+      #43d9ad,
+      rgba(76, 0, 255, 0)
+    );
+    @apply fixed opacity-50 top-[10%] left-[43%] h-[400px] w-[400px] rounded-full blur-[100px];
+  }
+  .circle-blur-blue {
+    background: radial-gradient(
+      circle at 50% 50%,
+      #4d5bce,
+      rgba(76, 0, 255, 0)
+    );
+    @apply fixed  top-[25%] opacity-50 left-[70%] h-[400px] w-[400px] rounded-full blur-[100px];
+  }
+  .card-game {
+    background: linear-gradient(180deg, #237b6d, rgba(67, 217, 173, 0.13));
+    @apply p-6 rounded-lg border border-onyx h-[370px] w-[420px] flex items-center justify-center relative;
+  }
+}
+
 @layer utilities {
   /* Nav */
   .nav-link {
