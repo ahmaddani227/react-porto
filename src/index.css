@@ -3,3 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* Nav */
+  .nav-link {
+    @apply flex items-center h-full px-6 border-r border-midnight-slate text-sm transition-all hover:bg-midnight-slate hover:text-white;
+  }
+
+  .nav-active {
+    @apply border-b-2 border-b-soft-orange text-white;
+  }
+}
