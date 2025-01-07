@@ -37,34 +37,34 @@ function NavbarMobile() {
         {isOpen && (
           <div className="absolute z-50 w-full min-h-screen top-16 bg-midnight-blue">
             <ul className="flex flex-col">
-              <li className="border-b border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
-                  className="flex items-center h-full text-base text-white p-fluid "
+                  className="flex items-center h-full text-base text-white "
                 >
                   _hello
                 </a>
               </li>
-              <li className="border-b border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
-                  className="flex items-center h-full text-base p-fluid text-slate-muted "
+                  className="flex items-center h-full text-base text-slate-muted "
                 >
                   _about-me
                 </a>
               </li>
-              <li className="border-b border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
-                  className="flex items-center h-full text-base p-fluid text-slate-muted "
+                  className="flex items-center h-full text-base text-slate-muted "
                 >
                   _projects
                 </a>
               </li>
-              <li className="border-b border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
-                  className="flex items-center h-full text-base p-fluid text-slate-muted "
+                  className="flex items-center h-full text-base text-slate-muted "
                 >
                   _contact-me
                 </a>
