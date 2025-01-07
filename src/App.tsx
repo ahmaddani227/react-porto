@@ -8,42 +8,22 @@ import BoltDownLeft from "/Icons/bolt-down-left.svg";
 import BoltDownRight from "/Icons/bolt-down-right.svg";
 import BoltUpLeft from "/Icons/bolt-up-left.svg";
 import BoltUpRight from "/Icons/bolt-up-right.svg";
+import Navbar from "./components/Fragments/Nabvbar/index.tsx";
 
 function App() {
   return (
-    <div className="border rounded-lg border-midnight-slate bg-midnight-blue">
-      <header className="border-b border-midnight-slate">
-        <nav className="flex justify-between w-full h-[45px]">
-          <div className="flex h-full text-slate-muted">
-            <a href="#" className="nav-link min-w-[275px]">
-              ahmad dani
-            </a>
-            <a href="#" className="nav-link nav-active">
-              _hello
-            </a>
-            <a href="#" className="nav-link">
-              _about-me
-            </a>
-            <a href="#" className="nav-link">
-              _projects
-            </a>
-          </div>
-          <a
-            href="#"
-            className="flex items-center h-full px-6 text-sm transition-all border-l text-slate-muted border-midnight-slate hover:bg-midnight-slate hover:text-white"
-          >
-            _contact-me
-          </a>
-        </nav>
-      </header>
+    <div className="border lg:rounded-lg border-midnight-slate bg-midnight-blue">
+      <Navbar />
 
-      <main className="lg:pl-[14.5rem]">
-        <section className="container">
-          <div className="flex min-h-[calc(100vh-154px)] items-center justify-between">
-            <div className="w-1/2">
+      <main className="lg:pl-[16rem]">
+        <section className="p-fluid">
+          <div className=" circle-blur-green" />
+          <div className=" circle-blur-blue" />
+          <div className="flex min-h-screen lg:min-h-[calc(100vh-197px)] items-center justify-between">
+            <div className="w-full lg:w-1/2">
               <h3 className="mb-4 text-lg">Hi all, I am</h3>
               <h1 className="mb-3 text-6xl font-normal">Ahmad Dani</h1>
-              <h2 className="text-3xl text-periwinkle-blue">
+              <h2 className="text-3xl text-mint-green lg:text-periwinkle-blue">
                 &gt; Frontend Developer
               </h2>
 
@@ -67,10 +47,8 @@ function App() {
                 </p>
               </div>
             </div>
-            <div className="flex items-end w-1/2 ">
-              <div className=" circle-blur-green" />
-              <div className="circle-blur-blue" />
-              <div className=" card-game">
+            <div className="items-end hidden w-1/2 lg:flex">
+              <div className="card-game">
                 <img
                   src={BoltUpLeft}
                   alt="Icon Bolt"
@@ -128,7 +106,7 @@ function App() {
           <a
             href="#"
             target="_blank"
-            className="flex items-center h-full px-6 text-sm transition-all border-l hover:bg-midnight-slate text-slate-muted border-midnight-slate"
+            className="items-center hidden h-full px-6 text-sm transition-all border-l lg:flex hover:bg-midnight-slate text-slate-muted border-midnight-slate"
           >
             @ahmaddani227
             <span className="ml-1">
