@@ -44,10 +44,19 @@
 
   /* Nav */
   .nav-link {
-    @apply flex items-center h-full px-6 border-r border-midnight-slate text-sm transition-all hover:bg-midnight-slate hover:text-white;
+    @apply flex items-center h-full px-6 border-midnight-slate text-sm transition-all hover:bg-midnight-slate hover:text-white;
   }
 
   .nav-active {
     @apply border-b-2 border-b-soft-orange text-white;
+  }
+
+  /* Footer */
+  .footer-sosmed {
+    @apply flex items-center h-full text-slate-muted text-sm transition border-midnight-slate hover:bg-midnight-slate;
+  }
+
+  .sosmed-icon {
+    @apply w-6 h-6 fill-midnight-slate;
   }
 }

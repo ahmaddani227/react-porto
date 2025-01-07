@@ -1,29 +1,47 @@
-function Navbar() {
+import NavbarLayouts from "../../Layouts/NavbarLayouts";
+import { menu } from "../../../constants/menu";
+
+interface NavLinkProps {
+  children?: React.ReactNode;
+  pathName: string;
+  classname?: string;
+}
+
+const NavLink = ({ children, pathName, classname = "" }: NavLinkProps) => {
   return (
-    <header className="hidden border-b border-midnight-slate lg:block">
-      <nav className="flex justify-between w-full h-[45px]">
-        <div className="flex h-full text-slate-muted">
-          <a href="#" className="nav-link min-w-[275px]">
-            ahmad dani
-          </a>
-          <a href="#" className="nav-link nav-active">
-            _hello
-          </a>
-          <a href="#" className="nav-link">
-            _about-me
-          </a>
-          <a href="#" className="nav-link">
-            _projects
-          </a>
-        </div>
-        <a
-          href="#"
-          className="flex items-center h-full px-6 text-sm transition-all border-l text-slate-muted border-midnight-slate hover:bg-midnight-slate hover:text-white"
+    <a href={pathName} className={`nav-link ${classname}`}>
+      {children}
+    </a>
+  );
+};
+
+function Navbar() {
+  const regularMenu = menu.filter((item) => item.title !== "_contact-me");
+  const contactMenu = menu.filter((item) => item.title === "_contact-me");
+
+  return (
+    <NavbarLayouts headerClassName="hidden lg:block" navClassName="h-[45px]">
+      <div className="flex h-full text-slate-muted">
+        {regularMenu.map((menu: any, index: number) => (
+          <NavLink
+            key={index}
+            pathName={menu.pathName}
+            classname={menu.classname}
+          >
+            {menu.title}
+          </NavLink>
+        ))}
+      </div>
+      {contactMenu.map((menu: any, index: number) => (
+        <NavLink
+          key={index}
+          pathName={menu.pathName}
+          classname={menu.classname}
         >
-          _contact-me
-        </a>
-      </nav>
-    </header>
+          {menu.title}
+        </NavLink>
+      ))}
+    </NavbarLayouts>
   );
 }
 
