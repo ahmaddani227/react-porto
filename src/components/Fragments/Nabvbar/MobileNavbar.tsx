@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { RiCloseFill, RiMenuLine } from "react-icons/ri";
 
-function NavbarMobile() {
+function MobileNavbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const hendleOpen = () => setIsOpen(!isOpen);
@@ -37,7 +37,7 @@ function NavbarMobile() {
         {isOpen && (
           <div className="absolute z-50 w-full min-h-screen top-16 bg-midnight-blue">
             <ul className="flex flex-col">
-              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluid border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
                   className="flex items-center h-full text-base text-white "
@@ -45,7 +45,7 @@ function NavbarMobile() {
                   _hello
                 </a>
               </li>
-              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluid border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
                   className="flex items-center h-full text-base text-slate-muted "
@@ -53,7 +53,7 @@ function NavbarMobile() {
                   _about-me
                 </a>
               </li>
-              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluid border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
                   className="flex items-center h-full text-base text-slate-muted "
@@ -61,7 +61,7 @@ function NavbarMobile() {
                   _projects
                 </a>
               </li>
-              <li className="py-4 border-b px-fluids border-midnight-slate hover:bg-midnight-slate">
+              <li className="py-4 border-b px-fluid border-midnight-slate hover:bg-midnight-slate">
                 <a
                   href="#"
                   className="flex items-center h-full text-base text-slate-muted "
@@ -77,4 +77,4 @@ function NavbarMobile() {
   );
 }
 
-export default NavbarMobile;
+export default MobileNavbar;

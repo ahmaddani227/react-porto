@@ -1,11 +1,10 @@
-import React from "react";
 import Navbar from "./Navbar";
-import NavbarMobile from "./NavbarMobile";
+import MobileNavbar from "./MobileNavbar";
 
 export default function index() {
   return (
     <>
-      <NavbarMobile />
+      <MobileNavbar />
       <Navbar />
     </>
   );
