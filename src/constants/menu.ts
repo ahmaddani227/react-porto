@@ -1,5 +1,9 @@
 import { RiInstagramFill, RiLinkedinFill, RiTiktokFill } from "react-icons/ri";
 import { INSTAGRAM, LINKEDIN, TIKTOK } from "./sosmed";
+import BoltUpLeft from "../assets/Icons/bolt-up-left.svg";
+import BoltUpRight from "../assets/Icons/bolt-up-right.svg";
+import BoltDownLeft from "../assets/Icons/bolt-down-left.svg";
+import BoltDownRight from "../assets/Icons/bolt-down-right.svg";
 
 type Menu = {
   title: string;
@@ -78,4 +82,29 @@ const footerMenu: Array<FooterMenu> = [
   },
 ];
 
-export { menuNavbarMobile, menu, footerMenu };
+// Bolt Image
+type TypeBoltImage = {
+  image: any;
+  classname: string;
+};
+
+const boltImage: Array<TypeBoltImage> = [
+  {
+    image: BoltUpLeft,
+    classname: "top-2 left-2",
+  },
+  {
+    image: BoltUpRight,
+    classname: "top-2 right-2",
+  },
+  {
+    image: BoltDownLeft,
+    classname: "bottom-2 left-2",
+  },
+  {
+    image: BoltDownRight,
+    classname: "bottom-2 right-2",
+  },
+];
+
+export { menuNavbarMobile, menu, footerMenu, boltImage };
