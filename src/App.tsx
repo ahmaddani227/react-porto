@@ -1,12 +1,7 @@
-import Home from "./components/Fragments/Home/index.tsx";
-import AppLayouts from "./components/Layouts/AppLayouts.tsx";
+import HomePage from "./pages/HomePage.tsx";
 
 function App() {
-  return (
-    <AppLayouts>
-      <Home />
-    </AppLayouts>
-  );
+  return <HomePage />;
 }
 
 export default App;
