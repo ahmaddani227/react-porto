@@ -1,5 +1,6 @@
 import NavbarLayouts from "../../Layouts/NavbarLayouts";
 import { menu } from "../../../constants/menu";
+import { Link } from "react-router-dom";
 
 interface NavLinkProps {
   children?: React.ReactNode;
@@ -9,9 +10,9 @@ interface NavLinkProps {
 
 const NavLink = ({ children, pathName, classname = "" }: NavLinkProps) => {
   return (
-    <a href={pathName} className={`nav-link ${classname}`}>
+    <Link to={pathName} className={`nav-link ${classname}`}>
       {children}
-    </a>
+    </Link>
   );
 };
 

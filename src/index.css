@@ -57,6 +57,31 @@
   }
 
   .sosmed-icon {
-    @apply w-6 h-6 fill-midnight-slate;
+    @apply w-6 h-6 fill-slate-muted opacity-35;
+  }
+
+  /* Test */
+  .tab-bar {
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    padding: 5px;
+  }
+  .tab {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .tab.active {
+    background-color: #fff;
+    font-weight: bold;
+  }
+  .tab-content {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
   }
 }

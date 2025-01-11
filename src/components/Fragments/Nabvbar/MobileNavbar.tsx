@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { RiCloseFill, RiMenuLine } from "react-icons/ri";
 import NavbarLayouts from "../../Layouts/NavbarLayouts";
 import { menuNavbarMobile } from "../../../constants/menu";
+import { Link } from "react-router-dom";
 
 const NavItem = ({ children }: React.PropsWithChildren) => {
   return (
@@ -23,12 +24,12 @@ const NavLink = ({
   classname = "text-slate-muted",
 }: NavLinkProps) => {
   return (
-    <a
-      href={pathName}
+    <Link
+      to={pathName}
       className={`flex items-center h-full text-base ${classname}`}
     >
       {children}
-    </a>
+    </Link>
   );
 };
 
@@ -48,9 +49,9 @@ function MobileNavbar() {
   return (
     <NavbarLayouts headerClassName="lg:hidden" navClassName="h-[63px] relative">
       <div className="flex items-center justify-between w-full h-full p-fluid text-slate-muted">
-        <a href="#" className="flex items-center h-full text-sm">
+        <Link to="#" className="flex items-center h-full text-sm">
           ahmad dani
-        </a>
+        </Link>
 
         <button className="inline-block" onClick={hendleOpen}>
           {isOpen ? (

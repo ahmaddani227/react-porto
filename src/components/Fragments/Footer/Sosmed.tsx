@@ -11,7 +11,7 @@ function Sosmed({ url, Svg, classname }: SosmedProps) {
       target="_blank"
       className={`footer-sosmed group ${classname}`}
     >
-      <Svg className="sosmed-icon group-hover:fill-slate-muted" />
+      <Svg className="sosmed-icon group-hover:fill-slate-muted group-hover:opacity-100" />
     </a>
   );
 }

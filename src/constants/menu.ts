@@ -14,12 +14,12 @@ type Menu = {
 const menuNavbarMobile: Array<Menu> = [
   {
     title: "_home",
-    pathName: "#",
+    pathName: "/",
     classname: "text-white",
   },
   {
     title: "_about-me",
-    pathName: "#",
+    pathName: "/about",
     classname: "",
   },
   {
@@ -37,17 +37,17 @@ const menuNavbarMobile: Array<Menu> = [
 const menu: Array<Menu> = [
   {
     title: "ahmad dani",
-    pathName: "#",
+    pathName: "/",
     classname: "border-r min-w-[275px]",
   },
   {
     title: "_hello",
-    pathName: "#",
+    pathName: "/",
     classname: "border-r nav-active",
   },
   {
     title: "_about-me",
-    pathName: "#",
+    pathName: "/about",
     classname: "border-r",
   },
   {
