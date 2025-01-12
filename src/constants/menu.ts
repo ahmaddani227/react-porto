@@ -62,7 +62,7 @@ const menu: Array<Menu> = [
   {
     title: "_hello",
     pathName: "/",
-    classname: "border-r nav-active",
+    classname: "border-r",
   },
   {
     title: "_about-me",
@@ -71,12 +71,12 @@ const menu: Array<Menu> = [
   },
   {
     title: "_projects",
-    pathName: "#",
+    pathName: "/projects",
     classname: "border-r",
   },
   {
     title: "_contact-me",
-    pathName: "#",
+    pathName: "/contact-me",
     classname: "border-l text-slate-muted",
   },
 ];
