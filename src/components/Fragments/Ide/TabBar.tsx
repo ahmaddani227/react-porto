@@ -19,13 +19,15 @@ export default function TabBar({
   closeTab,
 }: TabBarProps) {
   return (
-    <div className="flex border-b h-max min-h-[36px] border-midnight-slate">
+    <div className="flex min-h-[39px] w-max">
       {tabs?.map((tab) => (
         <div
           key={tab.id}
           onClick={() => setActiveTab(tab.id)}
-          className={`flex items-center h-full py-2 border-r cursor-pointer border-midnight-slate w-max  text-slate-muted ${
-            tab.id === activeTab ? "border-b-periwinkle-blue border-b-2" : ""
+          className={`flex items-center h-full py-2 border-r cursor-pointer border-midnight-slate w-max ${
+            tab.id === activeTab
+              ? "bg-midnight-slate text-white"
+              : "text-slate-muted"
           }`}
         >
           <p className="px-3 text-sm">{tab.title}</p>

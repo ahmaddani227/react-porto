@@ -1,56 +1,13 @@
+import { useState } from "react";
 import {
   RiArrowDownSLine,
   RiArrowRightSLine,
   RiFolder3Fill,
-  RiGamepadFill,
-  RiMailFill,
-  RiPhoneFill,
-  RiTerminalBoxFill,
+  RiMarkdownFill,
   RiTriangleFill,
-  RiUser4Fill,
 } from "react-icons/ri";
-
-const FolderData = [
-  {
-    id: "Experience",
-    title: "experience",
-    classname: {
-      fillIcon: "fill-peach",
-    },
-  },
-  {
-    id: "Hard Skills",
-    title: "hard-skills",
-    classname: {
-      fillIcon: "fill-mint-green",
-    },
-  },
-  {
-    id: "Soft Skills",
-    title: "soft-skills",
-    classname: {
-      fillIcon: "fill-[#3A49A4]",
-    },
-  },
-];
-
-const ActivityBarData = [
-  {
-    id: "Profesinal Info",
-    Svg: RiTerminalBoxFill,
-    classname: "",
-  },
-  {
-    id: "Personal Info",
-    Svg: RiUser4Fill,
-    classname: "opacity-40 hover:opacity-100",
-  },
-  {
-    id: "Hobbies Info",
-    Svg: RiGamepadFill,
-    classname: "opacity-40 hover:opacity-100",
-  },
-];
+import { sidebarData } from "../../../constants/menu";
+import Contacts from "./Contacts";
 
 interface FolderProps {
   addTab: (id: string, title: string) => void;
@@ -68,8 +25,8 @@ const Folder = ({ addTab, activeTab, data }: FolderProps) => {
   return (
     <button
       onClick={() => addTab(data.id, data.title)}
-      className={`flex items-center text-sm gap-x-1 ${
-        activeTab == data.id ? "text-white" : "text-slate-muted"
+      className={`flex items-center text-slate-muted hover:text-white transition text-sm gap-x-1 ${
+        activeTab == data.id && "text-white"
       }`}
     >
       {activeTab == data.id ? (
@@ -85,43 +42,53 @@ const Folder = ({ addTab, activeTab, data }: FolderProps) => {
   );
 };
 
-interface ActivityBarProps {
-  Svg: any;
-  classname: string;
+interface FileProps {
+  addTab: (id: string, title: string) => void;
+  activeTab: string;
+  data: {
+    id: string;
+    title: string;
+    classname: {
+      fillIcon: string;
+    };
+  };
 }
 
-const ActivityBar = ({ Svg, classname }: ActivityBarProps) => {
+const File = ({ addTab, activeTab, data }: FileProps) => {
   return (
-    <button>
-      <Svg className={`w-6 h-6 transition fill-slate-muted ${classname}`} />
+    <button
+      onClick={() => addTab(data.id, data.title)}
+      className={`flex items-center text-sm text-slate-muted transition hover:text-white gap-x-1 ml-6 ${
+        activeTab == data.id && "text-white"
+      }`}
+    >
+      <RiMarkdownFill className={`w-5 h-5 ${data.classname.fillIcon}`} />
+      <span className="ms-2">{data.title}</span>
     </button>
   );
 };
 
-const Contacts = () => {
+interface ActivityBarProps {
+  Svg: any;
+  activeActivityBar: string;
+  id: string;
+  setActiveActivityBar: (activityBarId: string) => void;
+}
+
+const ActivityBar = ({
+  Svg,
+  activeActivityBar,
+  id,
+  setActiveActivityBar,
+}: ActivityBarProps) => {
   return (
-    <div className="flex flex-col">
-      <div className="flex ps-2.5 py-2 border-b gap-x-2 border-midnight-slate">
-        <RiTriangleFill className="w-2 h-2.w-2 rotate-[60deg]" />{" "}
-        <p className="text-sm">contacts</p>
-      </div>
-      <div className="flex flex-col py-2 gap-y-2 ps-3 ">
-        <a
-          href="#"
-          className="flex items-center text-sm text-slate-muted gap-x-1"
-        >
-          <RiMailFill className="w-5 h-5 fill-slate-muted" />{" "}
-          <span className="ps-2.5">user@gmail.com</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center text-sm text-slate-muted gap-x-1"
-        >
-          <RiPhoneFill className="w-5 h-5 fill-slate-muted" />
-          <span className="ps-2.5">+628531950</span>
-        </a>
-      </div>
-    </div>
+    <button onClick={() => setActiveActivityBar(id)}>
+      <Svg
+        className={`w-6 h-6 transition fill-slate-muted ${
+          activeActivityBar != id ? "opacity-40 hover:opacity-100" : ""
+        }`}
+      />
+    </button>
   );
 };
 
@@ -131,35 +98,56 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ addTab, activeTab }: SidebarProps) {
+  const [activeActivityBar, setActiveActivityBar] =
+    useState("Profesional Info");
+
   return (
     <aside className="flex min-h-[calc(100vh-149px)] border-r border-midnight-slate min-w-[275px]">
       <div className="border-r border-midnight-slate">
         <div className="flex flex-col px-5 py-6 gap-y-6">
-          {ActivityBarData.map((item) => (
+          {sidebarData.map((item) => (
             <ActivityBar
               key={item.id}
+              id={item.id}
               Svg={item.Svg}
-              classname={item.classname}
+              activeActivityBar={activeActivityBar}
+              setActiveActivityBar={setActiveActivityBar}
             />
           ))}
         </div>
       </div>
       <div className="flex flex-col w-full">
         <div className="flex flex-col">
-          <div className="flex items-center ps-2.5 py-2 border-b gap-x-2 border-midnight-slate">
-            <RiTriangleFill className="w-2 h-2 rotate-[60deg]" />{" "}
-            <p className="text-sm">professional-info</p>
-          </div>
-          <div className="flex flex-col p-1.5 border-b gap-y-2 border-midnight-slate">
-            {FolderData.map((folder) => (
-              <Folder
-                key={folder.id}
-                addTab={addTab}
-                activeTab={activeTab}
-                data={folder}
-              />
+          {sidebarData
+            .filter((item) => item.id === activeActivityBar)
+            .map((item) => (
+              <div key={item.id}>
+                <div className="flex items-center ps-2.5 py-2 border-b gap-x-2 border-midnight-slate">
+                  <RiTriangleFill className="w-2 h-2 rotate-[60deg]" />
+                  <p className="text-sm">{item.title}</p>
+                </div>
+                <div className="flex flex-col p-1.5 border-b gap-y-2.5 border-midnight-slate">
+                  {item.sidebarData.map((item) => (
+                    <>
+                      {item.type == "folder" ? (
+                        <Folder
+                          key={item.id}
+                          addTab={addTab}
+                          activeTab={activeTab}
+                          data={item}
+                        />
+                      ) : item.type == "file" ? (
+                        <File
+                          addTab={addTab}
+                          activeTab={activeTab}
+                          data={item}
+                        />
+                      ) : null}
+                    </>
+                  ))}
+                </div>
+              </div>
             ))}
-          </div>
         </div>
         <Contacts />
       </div>

@@ -8,6 +8,10 @@
   body::-webkit-scrollbar {
     display: none;
   }
+
+  #tab-bar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer components {

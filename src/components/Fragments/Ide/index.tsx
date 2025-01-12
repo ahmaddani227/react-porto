@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import TabBar from "./TabBar";
-import Content from "./Content";
+import { sidebarData } from "../../../constants/menu";
 
 export default function IDE() {
   type Tab = {
@@ -29,28 +29,32 @@ export default function IDE() {
     }
   };
 
+  const ActiveContent = sidebarData
+    .flatMap((item) => item.sidebarData)
+    .find((subItem) => subItem.id === activeTab)?.Content;
+
   return (
     <main>
       <div className="flex">
         {/* Sidebar */}
         <Sidebar addTab={handleAddTab} activeTab={activeTab} />
 
-        <div className="flex flex-col w-full">
-          {/* TabBar */}
-          <TabBar
-            activeTab={activeTab}
-            tabs={tabs}
-            setActiveTab={setActiveTab}
-            closeTab={handleCloseTab}
-          />
+        <div className="flex flex-col w-full overflow-x-auto">
+          <div
+            id="tab-bar"
+            className="w-full overflow-x-scroll border-b border-collapse border-midnight-slate"
+          >
+            {/* TabBar */}
+            <TabBar
+              activeTab={activeTab}
+              tabs={tabs}
+              setActiveTab={setActiveTab}
+              closeTab={handleCloseTab}
+            />
+          </div>
 
           {/* Content */}
-          <Content>
-            <h1>Hello World</h1>
-            <button className="py-1.5 px-2 rounded-md my-3 bg-slate-muted">
-              Add TabBar
-            </button>
-          </Content>
+          {ActiveContent ? <ActiveContent /> : <div>No Content Available</div>}
         </div>
       </div>
     </main>
