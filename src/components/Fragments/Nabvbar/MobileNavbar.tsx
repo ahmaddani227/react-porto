@@ -49,7 +49,7 @@ function MobileNavbar() {
   return (
     <NavbarLayouts headerClassName="lg:hidden" navClassName="h-[63px] relative">
       <div className="flex items-center justify-between w-full h-full p-fluid text-slate-muted">
-        <Link to="#" className="flex items-center h-full text-sm">
+        <Link to="/" className="flex items-center h-full text-sm">
           ahmad dani
         </Link>
 

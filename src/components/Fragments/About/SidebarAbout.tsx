@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   RiArrowDownSLine,
   RiArrowRightSLine,
@@ -8,7 +7,9 @@ import {
 } from "react-icons/ri";
 import { sidebarData } from "../../../constants/menu";
 import Contacts from "./Contacts";
+import { useState } from "react";
 
+// Test Sidebar About
 interface FolderProps {
   addTab: (id: string, title: string) => void;
   activeTab: string;
@@ -91,18 +92,19 @@ const ActivityBar = ({
     </button>
   );
 };
+// Test Sidebar About
 
-interface SidebarProps {
+interface SidebarAboutProps {
   addTab: (id: string, title: string) => void;
   activeTab: string;
 }
 
-export default function Sidebar({ addTab, activeTab }: SidebarProps) {
+const SidebarAbout = ({ addTab, activeTab }: SidebarAboutProps) => {
   const [activeActivityBar, setActiveActivityBar] =
     useState("Profesional Info");
 
   return (
-    <aside className="flex min-h-[calc(100vh-149px)] border-r border-midnight-slate min-w-[275px]">
+    <>
       <div className="border-r border-midnight-slate">
         <div className="flex flex-col px-5 py-6 gap-y-6">
           {sidebarData.map((item) => (
@@ -128,7 +130,7 @@ export default function Sidebar({ addTab, activeTab }: SidebarProps) {
                 </div>
                 <div className="flex flex-col p-1.5 border-b gap-y-2.5 border-midnight-slate">
                   {item.sidebarData.map((item) => (
-                    <>
+                    <div key={item.id}>
                       {item.type == "folder" ? (
                         <Folder
                           key={item.id}
@@ -138,12 +140,13 @@ export default function Sidebar({ addTab, activeTab }: SidebarProps) {
                         />
                       ) : item.type == "file" ? (
                         <File
+                          key={item.id}
                           addTab={addTab}
                           activeTab={activeTab}
                           data={item}
                         />
                       ) : null}
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -151,6 +154,8 @@ export default function Sidebar({ addTab, activeTab }: SidebarProps) {
         </div>
         <Contacts />
       </div>
-    </aside>
+    </>
   );
-}
+};
+
+export default SidebarAbout;

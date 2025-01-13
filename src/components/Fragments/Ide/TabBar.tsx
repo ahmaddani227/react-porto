@@ -6,6 +6,7 @@ type Tab = {
 };
 
 interface TabBarProps {
+  children: React.ReactNode;
   tabs: Tab[];
   activeTab: string;
   setActiveTab: (tabId: string) => void;
@@ -17,28 +18,37 @@ export default function TabBar({
   activeTab,
   setActiveTab,
   closeTab,
+  children,
 }: TabBarProps) {
   return (
-    <div className="flex min-h-[39px] w-max">
-      {tabs?.map((tab) => (
-        <div
-          key={tab.id}
-          onClick={() => setActiveTab(tab.id)}
-          className={`flex items-center h-full py-2 border-r cursor-pointer border-midnight-slate w-max ${
-            tab.id === activeTab
-              ? "bg-midnight-slate text-white"
-              : "text-slate-muted"
-          }`}
-        >
-          <p className="px-3 text-sm">{tab.title}</p>
-          <button
-            onClick={(e) => closeTab(e, tab.id)}
-            className="mx-3 transition hover:scale-[1.3]"
-          >
-            <RiCloseFill className="w-4 h-4 " />
-          </button>
+    <div className="flex flex-col w-full overflow-x-auto">
+      <div
+        id="tab-bar"
+        className="w-full overflow-x-scroll border-b border-collapse border-midnight-slate"
+      >
+        <div className="flex min-h-[39px] w-max">
+          {tabs?.map((tab) => (
+            <div
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center h-full py-2 border-r cursor-pointer border-midnight-slate w-max ${
+                tab.id === activeTab
+                  ? "bg-midnight-slate text-white"
+                  : "text-slate-muted"
+              }`}
+            >
+              <p className="px-3 text-sm">{tab.title}</p>
+              <button
+                onClick={(e) => closeTab(e, tab.id)}
+                className="mx-3 transition hover:scale-[1.3]"
+              >
+                <RiCloseFill className="w-4 h-4 " />
+              </button>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+      {children}
     </div>
   );
 }

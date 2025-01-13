@@ -22,7 +22,7 @@ import {
   University,
   Sports,
   FavoriteGame,
-} from "../components/Fragments/About";
+} from "../components/Fragments/About/content";
 
 type Menu = {
   title: string;
