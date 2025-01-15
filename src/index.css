@@ -8,6 +8,10 @@
   body::-webkit-scrollbar {
     display: none;
   }
+
+  #tab-bar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer components {
@@ -57,6 +61,6 @@
   }
 
   .sosmed-icon {
-    @apply w-6 h-6 fill-midnight-slate;
+    @apply w-6 h-6 fill-slate-muted opacity-35;
   }
 }
