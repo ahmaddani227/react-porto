@@ -2,7 +2,7 @@ import TabBar from "./TabBar";
 
 const Sidebar = ({ children }: React.PropsWithChildren) => {
   return (
-    <aside className="flex min-h-[calc(100vh-149px)] border-r border-midnight-slate min-w-[275px]">
+    <aside className="flex h-full border-r border-midnight-slate min-w-[275px]">
       {children}
     </aside>
   );
@@ -10,8 +10,10 @@ const Sidebar = ({ children }: React.PropsWithChildren) => {
 
 const IDE = ({ children }: React.PropsWithChildren) => {
   return (
-    <main>
-      <div className="flex">{children}</div>
+    <main className="h-screen lg:h-[calc(100vh-149px)]">
+      <div className="flex flex-col h-auto space-y-5 lg:h-full lg:flex-row lg:space-y-0">
+        {children}
+      </div>
     </main>
   );
 };

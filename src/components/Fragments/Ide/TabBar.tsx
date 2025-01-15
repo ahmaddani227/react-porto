@@ -21,12 +21,12 @@ export default function TabBar({
   children,
 }: TabBarProps) {
   return (
-    <div className="flex flex-col w-full overflow-x-auto">
+    <div className="flex flex-col w-full h-full overflow-x-auto">
       <div
         id="tab-bar"
-        className="w-full overflow-x-scroll border-b border-collapse border-midnight-slate"
+        className="w-full overflow-x-scroll overflow-y-hidden border-t border-b border-collapse lg:border-t-0 border-midnight-slate min-h-[38px] lg:min-h-max"
       >
-        <div className="flex min-h-[39px] w-max">
+        <div className="flex w-max">
           {tabs?.map((tab) => (
             <div
               key={tab.id}
