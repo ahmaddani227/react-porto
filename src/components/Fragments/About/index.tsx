@@ -39,23 +39,23 @@ function About() {
 
   const isDekstop = useMediaQuery("(min-width: 1024px)");
 
-  const defaultExpendedFolders = (isDekstop: boolean) => {
+  const defaultExpandedFolders = (isDekstop: boolean) => {
     return sidebarData.reduce<{ [key: string]: boolean }>((acc, { title }) => {
       acc[title] = isDekstop;
       return acc;
     }, {});
   };
 
-  const [expendedFolders, setExpendedFolders] = useState(
-    defaultExpendedFolders(isDekstop)
+  const [expandedFolders, setExpandedFolders] = useState(
+    defaultExpandedFolders(isDekstop)
   );
 
   useEffect(() => {
-    setExpendedFolders(defaultExpendedFolders(isDekstop));
+    setExpandedFolders(defaultExpandedFolders(isDekstop));
   }, [isDekstop]);
 
   const handleToggle = (id: string) => {
-    setExpendedFolders((prev) => ({
+    setExpandedFolders((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
@@ -84,7 +84,7 @@ function About() {
               <SidebarMenu
                 key={item.id}
                 toggle={handleToggle}
-                expendedFolders={expendedFolders}
+                expandedFolders={expandedFolders}
                 data={item}
               >
                 {item.sidebarData.map((item) => (
@@ -99,7 +99,7 @@ function About() {
             ))}
             <SidebarMenu
               toggle={handleToggle}
-              expendedFolders={expendedFolders}
+              expandedFolders={expandedFolders}
               data={{ id, title }}
             >
               {contactsMenu.map((item, index) => (

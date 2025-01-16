@@ -4,7 +4,7 @@ import { RiArrowDropDownFill } from "react-icons/ri";
 interface SidebarMenuProps {
   children: ReactNode;
   toggle: (id: string) => void;
-  expendedFolders: {
+  expandedFolders: {
     [key: string]: boolean;
   };
   data: {
@@ -16,7 +16,7 @@ interface SidebarMenuProps {
 const SidebarMenu = ({
   children,
   toggle,
-  expendedFolders,
+  expandedFolders,
   data,
 }: SidebarMenuProps) => {
   const { id, title } = data;
@@ -30,14 +30,14 @@ const SidebarMenu = ({
         >
           <RiArrowDropDownFill
             className={`w-7 h-7 transition-all lg:rotate-0 duration-300 ${
-              expendedFolders[id] ? `rotate-0` : `-rotate-90`
+              expandedFolders[id] ? `rotate-0` : `-rotate-90`
             }`}
           />
           <p className="text-sm">{title}</p>
         </button>
         <div
           className={`transition-all duration-300 lg:h-auto ease-in-out ${
-            expendedFolders[id] ? `h-auto` : `h-0 overflow-hidden`
+            expandedFolders[id] ? `h-auto` : `h-0 overflow-hidden`
           }`}
         >
           <div
