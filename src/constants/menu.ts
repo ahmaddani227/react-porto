@@ -2,6 +2,8 @@ import {
   RiGamepadFill,
   RiInstagramFill,
   RiLinkedinFill,
+  RiMailFill,
+  RiPhoneFill,
   RiTerminalBoxFill,
   RiTiktokFill,
   RiUser4Fill,
@@ -240,4 +242,40 @@ const sidebarData = [
   },
 ];
 
-export { menuNavbarMobile, menu, footerMenu, boltImage, sidebarData };
+type ContactMenuItem = {
+  title: string;
+  url: string;
+  Svg: React.ElementType;
+};
+
+type ContactsSidebar = {
+  id: string;
+  title: string;
+  contactsMenu: ContactMenuItem[];
+};
+
+const contactsSidebar: ContactsSidebar = {
+  id: "Contacts",
+  title: "contacts",
+  contactsMenu: [
+    {
+      title: "user@gmail.com",
+      url: "#",
+      Svg: RiMailFill,
+    },
+    {
+      title: "+628531950",
+      url: "#",
+      Svg: RiPhoneFill,
+    },
+  ],
+};
+
+export {
+  menuNavbarMobile,
+  menu,
+  footerMenu,
+  boltImage,
+  sidebarData,
+  contactsSidebar,
+};
