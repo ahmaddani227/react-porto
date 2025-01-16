@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { sidebarData } from "../../../constants/menu";
+import { contactsSidebar, sidebarData } from "../../../constants/menu";
 import IDE from "../Ide";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
-import SidebarAbout from "./Sidebar";
+import ActivityBar from "./Sidebar/ActivityBar";
+import SidebarMenu from "./Sidebar/SidebarMenu";
+import ContactsLink from "./Sidebar/ContactsLink";
+import SidebarLink from "./Sidebar/SidebarLink";
 
 function About() {
   type Tab = {
@@ -58,17 +61,52 @@ function About() {
     }));
   };
 
+  const [activeActivityBar, setActiveActivityBar] =
+    useState("Profesional Info");
+
+  const subMenu = isDekstop
+    ? sidebarData.filter((item) => item.id === activeActivityBar)
+    : sidebarData;
+
+  const { id, title, contactsMenu } = contactsSidebar;
+
   return (
     <>
-      <h1 className="py-2 lg:hidden px-fluid">_about</h1>
+      <h1 className="py-3 lg:hidden px-fluid">_about</h1>
       <IDE>
         <IDE.Sidebar>
-          <SidebarAbout
-            addTab={handleAddTab}
-            activeTab={activeTab}
-            expendedFolders={expendedFolders}
-            toggle={handleToggle}
+          <ActivityBar
+            activeActivityBar={activeActivityBar}
+            setActiveActivityBar={setActiveActivityBar}
           />
+          <div className="flex flex-col w-full">
+            {subMenu.map((item) => (
+              <SidebarMenu
+                key={item.id}
+                toggle={handleToggle}
+                expendedFolders={expendedFolders}
+                data={item}
+              >
+                {item.sidebarData.map((item) => (
+                  <SidebarLink
+                    key={item.id}
+                    addTab={handleAddTab}
+                    activeTab={activeTab}
+                    data={item}
+                  />
+                ))}
+              </SidebarMenu>
+            ))}
+            <SidebarMenu
+              toggle={handleToggle}
+              expendedFolders={expendedFolders}
+              data={{ id, title }}
+            >
+              {contactsMenu.map((item, index) => (
+                <ContactsLink key={index} data={item} />
+              ))}
+            </SidebarMenu>
+          </div>
         </IDE.Sidebar>
 
         <IDE.TabBar
