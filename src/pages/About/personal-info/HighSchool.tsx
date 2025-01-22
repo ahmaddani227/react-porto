@@ -1,4 +1,4 @@
-import Content from "../../Ide/Content";
+import Content from "../../../components/Fragments/Ide/Content";
 
 export default function HighSchool() {
   return (

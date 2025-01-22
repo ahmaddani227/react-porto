@@ -1,5 +1,5 @@
-import CommentedContent from "../../Ide/CommentedContent";
-import Content from "../../Ide/Content";
+import CommentedContent from "../../../components/Fragments/Ide/CommentedContent";
+import Content from "../../../components/Fragments/Ide/Content";
 
 export default function Experience() {
   return (
