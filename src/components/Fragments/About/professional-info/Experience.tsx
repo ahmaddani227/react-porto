@@ -1,46 +1,50 @@
+import CommentedContent from "../../Ide/CommentedContent";
 import Content from "../../Ide/Content";
 
 export default function Experience() {
   return (
     <Content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci
-        assumenda saepe incidunt, hic amet perspiciatis facilis quasi suscipit
-        rerum explicabo et, eveniet architecto voluptatem iure ipsa similique,
-        odio non.
-      </p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum possimus
-        quidem obcaecati perspiciatis praesentium a vero! Iste dolorum repellat
-        dicta nostrum magnam ea error numquam. Incidunt nemo est esse repellat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-        consequatur, quis unde tempora distinctio optio et ab mollitia fugit
-        corrupti odit quam animi labore quaerat, sint, nesciunt doloribus
-        similique ipsam!
-      </p>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-        deleniti error? Natus sint repudiandae nihil quos quisquam dicta ducimus
-        vitae, itaque soluta quas id laboriosam accusantium nisi, temporibus
-        mollitia tenetur rem asperiores provident molestias perferendis quis?
-        Aliquid aperiam omnis laborum quisquam veritatis placeat nisi similique.
-        Dolore ipsa maxime sapiente, deserunt ratione nostrum? Placeat
-        perferendis sunt quos quisquam enim eveniet, odio laborum magnam
-        voluptatum consectetur rerum sit mollitia tenetur voluptate eos? Hic sit
-        fugiat excepturi in cum earum ducimus molestias. Nisi, quos, cum
-        corporis aut recusandae sunt sit expedita dolores debitis eos veniam
-        assumenda nostrum itaque! Quasi praesentium dolore dolores error.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quia
-        blanditiis, inventore at quisquam similique nisi, aliquid natus unde
-        dicta omnis, quo repellat quaerat vitae voluptates dignissimos
-        voluptatum deserunt ipsum nulla quasi optio illum. Fugit vitae
-        provident, quo at nihil officiis eveniet exercitationem, ullam
-        laudantium cum expedita amet quis similique?
-      </p>
+      <CommentedContent>
+        <p className="text-justify ">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates
+          corrupti modi dolore eveniet libero unde omnis, odio voluptatibus quae
+          harum deleniti sed iure qui, sapiente molestias non voluptas impedit
+          porro.
+        </p>
+        <a href="https://github.com/ahmaddani227" className="inline-block ">
+          Github Me
+        </a>
+        <p className="text-justify ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          aliquam expedita veniam sequi velit vero sapiente temporibus
+          consectetur facilis numquam, laborum distinctio magnam voluptatem
+          nihil provident modi quidem labore asperiores.
+        </p>
+        <p className="text-justify ">
+          Lorem inline block ipsum dolor sit amet consectetur adipisicing elit.
+          Tenetur pariatur, quas id doloribus mollitia, est molestias neque quo
+          doloremque sed cumque veniam minima. Nobis consectetur ea architecto
+          animi minima est?
+        </p>
+        <p className="text-justify ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+          aliquam dolore inventore illo deserunt, earum amet? Doloribus saepe,
+          pariatur impedit quia voluptatum, expedita fugiat, itaque at adipisci
+          voluptate et nam!
+        </p>
+        <div className="inline-block">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur,
+          culpa cum alias nobis vero voluptatibus, in veritatis at iure tempore
+          ratione omnis velit inventore reprehenderit ab commodi distinctio sunt
+          error!
+        </div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium
+          officiis nam libero esse, ullam temporibus omnis voluptatum, fugit
+          officia totam, dolor molestias sapiente iusto saepe autem porro
+          repellat consequuntur eos!
+        </p>
+      </CommentedContent>
     </Content>
   );
 }
