@@ -2,15 +2,17 @@ interface SosmedProps {
   url: string;
   Svg: any;
   classname?: string;
+  children?: React.ReactNode;
 }
 
-function Sosmed({ url, Svg, classname }: SosmedProps) {
+function Sosmed({ url, Svg, classname, children }: SosmedProps) {
   return (
     <a
       href={url}
       target="_blank"
       className={`footer-sosmed group ${classname}`}
     >
+      {children}
       <Svg className="sosmed-icon group-hover:fill-slate-muted group-hover:opacity-100" />
     </a>
   );

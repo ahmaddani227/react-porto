@@ -3,35 +3,7 @@ import { RiCloseFill, RiMenuLine } from "react-icons/ri";
 import NavbarLayouts from "../../Layouts/NavbarLayouts";
 import { menuNavbarMobile } from "../../../constants/menu";
 import { Link } from "react-router-dom";
-
-const NavItem = ({ children }: React.PropsWithChildren) => {
-  return (
-    <li className="py-4 border-b px-fluid border-midnight-slate hover:bg-midnight-slate">
-      {children}
-    </li>
-  );
-};
-
-interface NavLinkProps {
-  children?: React.ReactNode;
-  classname?: string;
-  pathName: string;
-}
-
-const NavLink = ({
-  children,
-  pathName,
-  classname = "text-slate-muted",
-}: NavLinkProps) => {
-  return (
-    <Link
-      to={pathName}
-      className={`flex items-center h-full text-base ${classname}`}
-    >
-      {children}
-    </Link>
-  );
-};
+import NavLink from "./NavLink";
 
 function MobileNavbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -64,15 +36,15 @@ function MobileNavbar() {
 
       {isOpen && (
         <div className="absolute z-50 w-full min-h-screen top-16 bg-midnight-blue">
-          <ul className="flex flex-col">
-            {menuNavbarMobile.map((menu: any, index: number) => (
-              <NavItem key={index}>
-                <NavLink classname={menu.classname} pathName={menu.pathName}>
-                  {menu.title}
-                </NavLink>
-              </NavItem>
-            ))}
-          </ul>
+          {menuNavbarMobile.map((menu: any, index: number) => (
+            <NavLink
+              key={index}
+              classname={menu.classname}
+              pathName={menu.pathName}
+            >
+              {menu.title}
+            </NavLink>
+          ))}
         </div>
       )}
     </NavbarLayouts>
