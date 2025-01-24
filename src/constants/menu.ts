@@ -25,6 +25,7 @@ import {
   Sports,
   FavoriteGame,
 } from "../components/Fragments/About/content";
+import { SiJavascript, SiReact } from "react-icons/si";
 
 type Menu = {
   title: string;
@@ -271,6 +272,49 @@ const contactsSidebar: ContactsSidebar = {
   ],
 };
 
+type SidebarMenuType = {
+  id: string;
+  title: string;
+  Svg: React.ElementType;
+  type: string;
+  classname: {
+    fillIcon: string;
+  };
+};
+
+type SidebarProjectsTypes = {
+  id: string;
+  title: string;
+  sidebarMenu: SidebarMenuType[];
+};
+
+const sidebarProjects: SidebarProjectsTypes[] = [
+  {
+    id: "Projects",
+    title: "projects",
+    sidebarMenu: [
+      {
+        id: "javascript",
+        title: "JavaScript",
+        Svg: SiJavascript,
+        type: "file",
+        classname: {
+          fillIcon: "fill-peach",
+        },
+      },
+      {
+        id: "react",
+        title: "React",
+        Svg: SiReact,
+        type: "file",
+        classname: {
+          fillIcon: "fill-peach",
+        },
+      },
+    ],
+  },
+];
+
 export {
   menuNavbarMobile,
   menu,
@@ -278,4 +322,5 @@ export {
   boltImage,
   sidebarData,
   contactsSidebar,
+  sidebarProjects,
 };
