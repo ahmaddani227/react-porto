@@ -23,6 +23,29 @@
 }
 
 @layer components {
+  /* Navigasi */
+  .nav-link {
+    @apply flex items-center h-full border-b lg:border-r px-fluid py-4 lg:py-0 lg:px-6 border-midnight-slate text-base lg:text-sm transition-all hover:bg-midnight-slate hover:text-white text-slate-muted;
+  }
+
+  .nav-active {
+    @apply lg:border-b-2 lg:border-b-soft-orange text-white;
+  }
+
+  /* Footer */
+  .footer-title {
+    @apply flex items-center h-full px-6 text-sm lg:border-r text-slate-muted lg:border-midnight-slate;
+  }
+
+  .footer-sosmed {
+    @apply flex items-center h-full text-slate-muted text-sm transition border-midnight-slate hover:bg-midnight-slate;
+  }
+
+  .sosmed-icon {
+    @apply w-6 h-6 fill-slate-muted opacity-35 lg:opacity-100 lg:ml-1;
+  }
+
+  /* Home Page */
   .circle-blur-green {
     background: radial-gradient(
       circle at 50% 50%,
@@ -52,23 +75,5 @@
   }
   .px-fluid {
     @apply px-[1.5rem];
-  }
-
-  /* Nav */
-  .nav-link {
-    @apply flex items-center h-full px-6 border-midnight-slate text-sm transition-all hover:bg-midnight-slate hover:text-white;
-  }
-
-  .nav-active {
-    @apply border-b-2 border-b-soft-orange text-white;
-  }
-
-  /* Footer */
-  .footer-sosmed {
-    @apply flex items-center h-full text-slate-muted text-sm transition border-midnight-slate hover:bg-midnight-slate;
-  }
-
-  .sosmed-icon {
-    @apply w-6 h-6 fill-slate-muted opacity-35;
   }
 }

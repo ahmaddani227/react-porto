@@ -5,10 +5,8 @@ import Sosmed from "./Sosmed";
 function MobileFooter() {
   return (
     <FooterLayouts classname="lg:hidden">
-      <div className="flex justify-between w-full h-full text-slate-muted">
-        <h1 className="flex items-center h-full px-6 text-sm text-slate-muted ">
-          find me in:
-        </h1>
+      <div className="flex justify-between w-full h-full">
+        <h1 className="footer-title">find me in:</h1>
 
         <div className="flex justify-end">
           {footerMenu.map((item: any, index: number) => (

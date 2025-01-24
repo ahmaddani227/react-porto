@@ -34,9 +34,9 @@ type Menu = {
 
 const menuNavbarMobile: Array<Menu> = [
   {
-    title: "_home",
+    title: "_hello",
     pathName: "/",
-    classname: "text-white",
+    classname: "",
   },
   {
     title: "_about-me",
@@ -45,12 +45,12 @@ const menuNavbarMobile: Array<Menu> = [
   },
   {
     title: "_projects",
-    pathName: "#",
+    pathName: "/projects",
     classname: "",
   },
   {
     title: "_contact-me",
-    pathName: "#",
+    pathName: "/contact-me",
     classname: "",
   },
 ];
@@ -59,22 +59,22 @@ const menu: Array<Menu> = [
   {
     title: "ahmad dani",
     pathName: "/",
-    classname: "border-r min-w-[275px]",
+    classname: " min-w-[275px]",
   },
   {
     title: "_hello",
     pathName: "/",
-    classname: "border-r",
+    classname: "",
   },
   {
     title: "_about-me",
     pathName: "/about",
-    classname: "border-r",
+    classname: "",
   },
   {
     title: "_projects",
     pathName: "/projects",
-    classname: "border-r",
+    classname: "",
   },
   {
     title: "_contact-me",
