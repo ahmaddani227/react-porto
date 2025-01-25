@@ -49,6 +49,30 @@ const projects: ProjectsType[] = [
       bgIcon: "bg-mint-green",
     },
   },
+  {
+    title: "Projects 4",
+    subtitle: "_worldmap",
+    Svg: SiReact,
+    description: "Duis aute irure dolor in velit esse cillum dolore.",
+    image:
+      "https://images.unsplash.com/photo-1625014618427-fbc980b974f5?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    github: "https://github.com/",
+    classname: {
+      bgIcon: "bg-mint-green",
+    },
+  },
+  {
+    title: "Projects 5",
+    subtitle: "_worldmap",
+    Svg: SiReact,
+    description: "Duis aute irure dolor in velit esse cillum dolore.",
+    image:
+      "https://images.unsplash.com/photo-1617791160530-fb48acfc1658?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    github: "https://github.com/",
+    classname: {
+      bgIcon: "bg-mint-green",
+    },
+  },
 ];
 
 export { projects };

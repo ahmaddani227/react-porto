@@ -68,14 +68,16 @@ const ProjectsPage = () => {
                 expandedFolders={expandedFolders}
                 data={item}
               >
-                {item.sidebarMenu.map((item) => (
-                  <SidebarLink
-                    key={item.id}
-                    addTab={handleAddTab}
-                    activeTab={activeTab}
-                    data={item}
-                  />
-                ))}
+                <div className="space-y-4 lg:py-3">
+                  {item.sidebarMenu.map((item) => (
+                    <SidebarLink
+                      key={item.id}
+                      addTab={handleAddTab}
+                      activeTab={activeTab}
+                      data={item}
+                    />
+                  ))}
+                </div>
               </SidebarMenu>
             ))}
           </div>

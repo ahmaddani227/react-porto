@@ -25,7 +25,7 @@ import {
   Sports,
   FavoriteGame,
 } from "../components/Fragments/About/content";
-import { SiJavascript, SiReact } from "react-icons/si";
+import { SiHtml5, SiReact } from "react-icons/si";
 
 type Menu = {
   title: string;
@@ -294,21 +294,21 @@ const sidebarProjects: SidebarProjectsTypes[] = [
     title: "projects",
     sidebarMenu: [
       {
-        id: "javascript",
-        title: "JavaScript",
-        Svg: SiJavascript,
-        type: "file",
-        classname: {
-          fillIcon: "fill-peach",
-        },
-      },
-      {
         id: "react",
         title: "React",
         Svg: SiReact,
-        type: "file",
+        type: "checkbox",
         classname: {
-          fillIcon: "fill-peach",
+          fillIcon: "fill-midnight-slate",
+        },
+      },
+      {
+        id: "html",
+        title: "HTML",
+        Svg: SiHtml5,
+        type: "checkbox",
+        classname: {
+          fillIcon: "fill-midnight-slate",
         },
       },
     ],
