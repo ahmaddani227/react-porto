@@ -66,6 +66,33 @@
     background: linear-gradient(180deg, #237b6d, rgba(67, 217, 173, 0.13));
     @apply p-6 rounded-lg border border-onyx h-[340px] w-[415px] flex items-center justify-center relative;
   }
+
+  /* Projects */
+  .projects-container {
+    @apply grid grid-cols-1 md:gap-x-3 lg:gap-x-10 gap-y-5 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  /* Card */
+  .card-header {
+    @apply flex items-center mb-2;
+  }
+  .card-title {
+    @apply mr-3 text-sm font-bold text-periwinkle-blue;
+  }
+  .card-subtitle {
+    @apply text-sm text-slate-muted;
+  }
+  .card-body {
+    @apply relative overflow-hidden border border-midnight-slate rounded-2xl bg-midnight-navy;
+  }
+
+  .card-description {
+    @apply mb-6 text-sm text-slate-muted;
+  }
+
+  .card-link {
+    @apply px-2 py-1.5 rounded-lg bg-midnight-slate hover:bg-slate-muted/35 text-white text-sm;
+  }
 }
 
 @layer utilities {

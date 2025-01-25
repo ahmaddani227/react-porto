@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import SidebarMenu from "../components/Fragments/About/Sidebar/SidebarMenu";
 import IDE from "../components/Fragments/Ide";
-import { sidebarData, sidebarProjects } from "../constants/menu";
+import { sidebarProjects } from "../constants/menu";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import SidebarLink from "../components/Fragments/About/Sidebar/SidebarLink";
 import AppLayouts from "../components/Layouts/AppLayouts";
+import Projects from "./Projects";
 
 const ProjectsPage = () => {
   type Tab = {
@@ -52,13 +53,11 @@ const ProjectsPage = () => {
     }
   };
 
-  const ActiveContent = sidebarData
-    .flatMap((item) => item.sidebarData)
-    .find((subItem) => subItem.id === activeTab)?.Content;
+  const ActiveContent = Projects;
 
   return (
     <AppLayouts>
-      <h1 className="py-3 lg:hidden px-fluid">_about</h1>
+      <h1 className="py-3 lg:hidden px-fluid">_projects</h1>
       <IDE>
         <IDE.Sidebar>
           <div className="flex flex-col w-full">
@@ -69,14 +68,16 @@ const ProjectsPage = () => {
                 expandedFolders={expandedFolders}
                 data={item}
               >
-                {item.sidebarMenu.map((item) => (
-                  <SidebarLink
-                    key={item.id}
-                    addTab={handleAddTab}
-                    activeTab={activeTab}
-                    data={item}
-                  />
-                ))}
+                <div className="space-y-4 lg:py-3">
+                  {item.sidebarMenu.map((item) => (
+                    <SidebarLink
+                      key={item.id}
+                      addTab={handleAddTab}
+                      activeTab={activeTab}
+                      data={item}
+                    />
+                  ))}
+                </div>
               </SidebarMenu>
             ))}
           </div>
