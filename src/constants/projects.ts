@@ -1,6 +1,6 @@
 import { SiFlutter, SiGatsby, SiReact } from "react-icons/si";
 
-type ProjectsType = {
+type Projects = {
   title: string;
   subtitle: string;
   Svg: React.ElementType;
@@ -12,7 +12,7 @@ type ProjectsType = {
   };
 };
 
-const projects: ProjectsType[] = [
+export const projects: Projects[] = [
   {
     title: "Projects 1",
     subtitle: "_ui-animations",
@@ -74,5 +74,3 @@ const projects: ProjectsType[] = [
     },
   },
 ];
-
-export { projects };

@@ -1,10 +1,13 @@
-const GITHUB = {
+type Sosmed = {
+  username?: string;
+  url: string;
+};
+
+export const GITHUB: Sosmed = {
   username: "username",
   url: "#",
 };
 
-const LINKEDIN = { url: "#" };
-const INSTAGRAM = { url: "#" };
-const TIKTOK = { url: "#" };
-
-export { GITHUB, LINKEDIN, INSTAGRAM, TIKTOK };
+export const LINKEDIN: Sosmed = { url: "#" };
+export const INSTAGRAM: Sosmed = { url: "#" };
+export const TIKTOK: Sosmed = { url: "#" };

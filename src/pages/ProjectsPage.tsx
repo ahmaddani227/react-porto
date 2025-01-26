@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import SidebarMenu from "../components/Fragments/About/Sidebar/SidebarMenu";
 import IDE from "../components/Fragments/Ide";
-import { sidebarProjects } from "../constants/menu";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import SidebarLink from "../components/Fragments/About/Sidebar/SidebarLink";
 import AppLayouts from "../components/Layouts/AppLayouts";
 import Projects from "./Projects";
+import { sidebarProjects } from "../constants/menu/sidebar";
 
 const ProjectsPage = () => {
   type Tab = {
@@ -16,7 +16,7 @@ const ProjectsPage = () => {
   type ExpandedFoldersType = {
     [key: string]: boolean;
   };
-  const isDekstop = useMediaQuery("(min-width: 1024px)"); // Bolean
+  const isDekstop = useMediaQuery();
 
   const [expandedFolders, setExpandedFolders] = useState<ExpandedFoldersType>({
     Projects: isDekstop,
@@ -69,7 +69,7 @@ const ProjectsPage = () => {
                 data={item}
               >
                 <div className="space-y-4 lg:py-3">
-                  {item.sidebarMenu.map((item) => (
+                  {item.sidebarData.map((item) => (
                     <SidebarLink
                       key={item.id}
                       addTab={handleAddTab}

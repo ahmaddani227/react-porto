@@ -5,7 +5,7 @@ interface SosmedProps {
   children?: React.ReactNode;
 }
 
-function Sosmed({ url, Svg, classname, children }: SosmedProps) {
+function SosmedLink({ url, Svg, classname, children }: SosmedProps) {
   return (
     <a
       href={url}
@@ -18,4 +18,4 @@ function Sosmed({ url, Svg, classname, children }: SosmedProps) {
   );
 }
 
-export default Sosmed;
+export default SosmedLink;

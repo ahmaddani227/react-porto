@@ -1,14 +1,19 @@
 import NavbarLayouts from "../../Layouts/NavbarLayouts";
-import { menu } from "../../../constants/menu";
 import { Link } from "react-router-dom";
 import NavLink from "./NavLink";
+import {
+  getBrandMenu,
+  getContactMenu,
+  getRegularMenu,
+} from "../../../utils/navbarMenu";
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 function Navbar() {
-  const brandMenu = menu.find((item) => item.title === "ahmad dani");
-  const regularMenu = menu.filter(
-    (item) => item.title !== "_contact-me" && item.title !== "ahmad dani"
-  );
-  const contactMenu = menu.filter((item) => item.title === "_contact-me");
+  const isDekstop = useMediaQuery();
+
+  const brandMenu = getBrandMenu();
+  const regularMenu = getRegularMenu(isDekstop);
+  const contactMenu = getContactMenu();
 
   return (
     <NavbarLayouts headerClassName="hidden lg:block" navClassName="h-[45px]">
@@ -31,15 +36,14 @@ function Navbar() {
           </NavLink>
         ))}
       </div>
-      {contactMenu.map((menu: any, index: number) => (
+      {contactMenu && (
         <NavLink
-          key={index}
-          pathName={menu.pathName}
-          classname={menu.classname}
+          pathName={contactMenu.pathName}
+          classname={`nav-link ${contactMenu.classname}`}
         >
-          {menu.title}
+          {contactMenu.title}
         </NavLink>
-      ))}
+      )}
     </NavbarLayouts>
   );
 }

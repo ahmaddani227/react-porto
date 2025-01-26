@@ -1,8 +1,8 @@
 import { RiGithubFill } from "react-icons/ri";
 import FooterLayouts from "../../Layouts/FooterLayouts";
-import { footerMenu } from "../../../constants/menu";
-import Sosmed from "./Sosmed";
+import SosmedLink from "./SosmedLink";
 import { GITHUB } from "../../../constants/sosmed";
+import { footerMenu } from "../../../constants/menu/footer";
 
 function Footer() {
   return (
@@ -10,7 +10,7 @@ function Footer() {
       <div className="flex h-full">
         <h1 className="footer-title">find me in:</h1>
         {footerMenu.map((item: any, index: number) => (
-          <Sosmed
+          <SosmedLink
             key={index}
             url={item.url}
             Svg={item.Svg}
@@ -18,9 +18,9 @@ function Footer() {
           />
         ))}
       </div>
-      <Sosmed url={GITHUB.url} Svg={RiGithubFill} classname="px-6 border-l">
+      <SosmedLink url={GITHUB.url} Svg={RiGithubFill} classname="px-6 border-l">
         {GITHUB.username}
-      </Sosmed>
+      </SosmedLink>
     </FooterLayouts>
   );
 }

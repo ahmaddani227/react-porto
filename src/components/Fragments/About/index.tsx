@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { contactsSidebar, sidebarData } from "../../../constants/menu";
+import { contactsSidebar } from "../../../constants/menu/contacts";
 import IDE from "../Ide";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import ActivityBar from "./Sidebar/ActivityBar";
 import SidebarMenu from "./Sidebar/SidebarMenu";
 import ContactsLink from "./Sidebar/ContactsLink";
 import SidebarLink from "./Sidebar/SidebarLink";
+import { sidebarAbout } from "../../../constants/menu/sidebar";
 
 function About() {
   type Tab = {
@@ -33,14 +34,14 @@ function About() {
     }
   };
 
-  const ActiveContent = sidebarData
+  const ActiveContent = sidebarAbout
     .flatMap((item) => item.sidebarData)
     .find((subItem) => subItem.id === activeTab)?.Content;
 
-  const isDekstop = useMediaQuery("(min-width: 1024px)");
+  const isDekstop = useMediaQuery();
 
   const defaultExpandedFolders = (isDekstop: boolean) => {
-    return sidebarData.reduce<{ [key: string]: boolean }>((acc, { title }) => {
+    return sidebarAbout.reduce<{ [key: string]: boolean }>((acc, { title }) => {
       acc[title] = isDekstop;
       return acc;
     }, {});
@@ -64,9 +65,9 @@ function About() {
   const [activeActivityBar, setActiveActivityBar] =
     useState("Profesional Info");
 
-  const subMenu = isDekstop
-    ? sidebarData.filter((item) => item.id === activeActivityBar)
-    : sidebarData;
+  const menu = isDekstop
+    ? sidebarAbout.filter((item) => item.id === activeActivityBar)
+    : sidebarAbout;
 
   const { id, title, contactsMenu } = contactsSidebar;
 
@@ -80,7 +81,7 @@ function About() {
             setActiveActivityBar={setActiveActivityBar}
           />
           <div className="flex flex-col w-full">
-            {subMenu.map((item) => (
+            {menu.map((item) => (
               <SidebarMenu
                 key={item.id}
                 toggle={handleToggle}
