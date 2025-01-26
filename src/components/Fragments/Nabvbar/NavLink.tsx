@@ -6,11 +6,7 @@ interface NavLinkProps {
   classname?: string;
 }
 
-const NavLink = ({
-  children,
-  pathName,
-  classname = "bg-red-200",
-}: NavLinkProps) => {
+const NavLink = ({ children, pathName, classname }: NavLinkProps) => {
   return (
     <RouterNavLink
       to={pathName}

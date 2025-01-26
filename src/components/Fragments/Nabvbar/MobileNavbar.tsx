@@ -14,9 +14,11 @@ function MobileNavbar() {
     const body = document.body;
 
     if (isOpen) {
-      body.style.overflow = "hidden";
+      body.classList.add("overflow-hidden");
+    } else {
+      body.classList.remove("overflow-hidden");
     }
-  }, []);
+  }, [isOpen]);
 
   return (
     <NavbarLayouts headerClassName="lg:hidden" navClassName="h-[63px] relative">

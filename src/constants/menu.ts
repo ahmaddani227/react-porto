@@ -60,22 +60,22 @@ const menu: Array<Menu> = [
   {
     title: "ahmad dani",
     pathName: "/",
-    classname: " min-w-[275px]",
+    classname: "min-w-[275px] lg:border-r",
   },
   {
     title: "_hello",
     pathName: "/",
-    classname: "",
+    classname: "lg:border-r",
   },
   {
     title: "_about-me",
     pathName: "/about",
-    classname: "",
+    classname: "lg:border-r",
   },
   {
     title: "_projects",
     pathName: "/projects",
-    classname: "",
+    classname: "lg:border-r",
   },
   {
     title: "_contact-me",
