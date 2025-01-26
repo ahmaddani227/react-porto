@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useMediaQuery(query: string): boolean {
+export function useMediaQuery(query: string = "(min-width: 1024px)"): boolean {
   const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {

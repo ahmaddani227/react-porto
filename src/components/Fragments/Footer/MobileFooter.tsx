@@ -1,6 +1,6 @@
+import { footerMenu } from "../../../constants/menu/footer";
 import FooterLayouts from "../../Layouts/FooterLayouts";
-import { footerMenu } from "../../../constants/menu";
-import Sosmed from "./Sosmed";
+import SosmedLink from "./SosmedLink";
 
 function MobileFooter() {
   return (
@@ -10,7 +10,7 @@ function MobileFooter() {
 
         <div className="flex justify-end">
           {footerMenu.map((item: any, index: number) => (
-            <Sosmed
+            <SosmedLink
               key={index}
               url={item.url}
               Svg={item.Svg}

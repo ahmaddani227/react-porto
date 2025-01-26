@@ -3,7 +3,7 @@ import MobileFooter from "./MobileFooter";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 
 function index() {
-  const isDekstop = useMediaQuery("(min-width: 1024px)");
+  const isDekstop = useMediaQuery();
 
   return <>{isDekstop ? <Footer /> : <MobileFooter />}</>;
 }

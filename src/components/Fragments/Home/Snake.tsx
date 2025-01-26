@@ -1,4 +1,4 @@
-import { boltImage } from "../../../constants/menu";
+import { boltSvg } from "../../../constants/image";
 
 interface BoltProps {
   image: any;
@@ -14,7 +14,7 @@ function Snake() {
   return (
     <div className="items-end hidden w-1/2 lg:flex">
       <div className="card-game">
-        {boltImage.map((item: any, index: number) => (
+        {boltSvg.map((item: any, index: number) => (
           <Bolt key={index} image={item.image} classname={item.classname} />
         ))}
         <h1 className="text-3xl font-semibold text-slate-muted">Coming Soon</h1>

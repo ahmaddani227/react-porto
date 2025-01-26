@@ -14,7 +14,6 @@ const CommentedContent: React.FC<CommentedContentProps> = ({ children }) => {
       //   const fontSize = parseInt(style.fontSize, 10);
       const lineHeight = parseInt(style.lineHeight, 10);
       const maxHeight = textContainerRef.current.offsetHeight;
-      console.log(maxHeight, lineHeight);
       setLines(Math.ceil(maxHeight / lineHeight) + 1);
     }
   };
