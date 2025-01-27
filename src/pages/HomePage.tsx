@@ -1,5 +1,5 @@
 import AppLayouts from "../components/Layouts/AppLayouts";
-import Home from "../components/Fragments/Home";
+import Home from "../modules/home";
 
 export default function HomePage() {
   return (

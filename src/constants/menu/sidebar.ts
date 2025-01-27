@@ -1,5 +1,6 @@
 import { RiGamepadFill, RiTerminalBoxFill, RiUser4Fill } from "react-icons/ri";
 
+import { SiHtml5, SiReact } from "react-icons/si";
 import {
   Experience,
   HardSkills,
@@ -11,8 +12,7 @@ import {
   University,
   Sports,
   FavoriteGame,
-} from "../../components/Fragments/About/content";
-import { SiHtml5, SiReact } from "react-icons/si";
+} from "../../modules/about/contents";
 
 type SidebarMenuItem = {
   id: string;

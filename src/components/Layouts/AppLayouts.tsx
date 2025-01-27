@@ -1,5 +1,5 @@
-import Footer from "../Fragments/Footer";
-import Navbar from "../Fragments/Nabvbar";
+import Footer from "./Footer";
+import Navbar from "./Nabvbar";
 
 export default function AppLayouts({ children }: React.PropsWithChildren) {
   return (
