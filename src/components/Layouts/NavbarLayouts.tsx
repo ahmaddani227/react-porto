@@ -11,7 +11,7 @@ function NavbarLayouts({
   navClassName = "",
 }: NavbarLayoutsProps) {
   return (
-    <header className={` border-b border-midnight-slate ${headerClassName}`}>
+    <header className={`border-b border-midnight-slate ${headerClassName}`}>
       <nav className={`flex justify-between w-full ${navClassName}`}>
         {children}
       </nav>
