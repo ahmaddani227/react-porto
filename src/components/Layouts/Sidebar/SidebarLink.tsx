@@ -45,16 +45,27 @@ const File = ({ classname }: { classname: string }) => {
 type CheckboxTypes = {
   Svg: ElementType;
   classname: string;
+  id: string;
+  activeTab: string;
 };
 
-const Checkbox = ({ Svg, classname }: CheckboxTypes) => {
+const Checkbox = ({ Svg, classname, id, activeTab }: CheckboxTypes) => {
   return (
-    <div className="flex items-center ps-7">
+    <div className="z-10 flex items-center ps-7">
       <input
         type="checkbox"
-        className="w-4 h-4 mr-4 border-2 rounded-sm outline-none appearance-none border-slate-muted"
+        checked={id === activeTab}
+        className={`w-4 h-4 mr-4 rounded-sm cursor-pointer ${
+          id === activeTab
+            ? "accent-slate-muted"
+            : "appearance-none border-2 border-slate-muted"
+        }`}
       />
-      <Svg className={`w-5 h-5 ${classname}`} />
+      <Svg
+        className={`w-6 h-6 ${
+          id === activeTab ? "fill-slate-muted" : classname
+        }`}
+      />
     </div>
   );
 };
@@ -63,27 +74,32 @@ const SidebarLink = ({ addTab, activeTab, data }: SidebarLinkProps) => {
   const { id, title, type, classname, Svg } = data;
 
   return (
-    <button
-      onClick={() => addTab(id, title)}
-      className={`flex items-center text-sm text-slate-muted transition hover:text-white gap-x-1 ${
-        type == "file" && "ml-6"
-      } ${activeTab == id && "text-white"}`}
-    >
-      {type === "folder" && (
-        <>
+    <>
+      <button
+        onClick={() => addTab(id, title)}
+        className={`flex items-center text-sm text-slate-muted transition hover:text-white gap-x-1 ${
+          type == "file" && "ml-6"
+        } ${activeTab == id && "text-white"}`}
+      >
+        {type === "folder" && (
           <Folder
             id={id}
             activeTab={activeTab}
             classname={classname.fillIcon}
           />
-        </>
-      )}
-      {type === "file" && <File classname={classname.fillIcon} />}
-      {Svg && type == "checkbox" && (
-        <Checkbox Svg={Svg} classname={classname.fillIcon} />
-      )}
-      <span className="ps-2">{title}</span>
-    </button>
+        )}
+        {type === "file" && <File classname={classname.fillIcon} />}
+        {Svg && type == "checkbox" && (
+          <Checkbox
+            Svg={Svg}
+            classname={classname.fillIcon}
+            id={id}
+            activeTab={activeTab}
+          />
+        )}
+        <span className="ps-2">{title}</span>
+      </button>
+    </>
   );
 };
 

@@ -1,6 +1,11 @@
-import { RiGamepadFill, RiTerminalBoxFill, RiUser4Fill } from "react-icons/ri";
+import {
+  RiGamepadFill,
+  RiHtml5Fill,
+  RiReactjsFill,
+  RiTerminalBoxFill,
+  RiUser4Fill,
+} from "react-icons/ri";
 
-import { SiHtml5, SiReact } from "react-icons/si";
 import {
   Experience,
   HardSkills,
@@ -154,7 +159,7 @@ export const sidebarProjects: SidebarMenu[] = [
       {
         id: "react",
         title: "React",
-        Svg: SiReact,
+        Svg: RiReactjsFill,
         type: "checkbox",
         classname: {
           fillIcon: "fill-midnight-slate",
@@ -163,7 +168,7 @@ export const sidebarProjects: SidebarMenu[] = [
       {
         id: "html",
         title: "HTML",
-        Svg: SiHtml5,
+        Svg: RiHtml5Fill,
         type: "checkbox",
         classname: {
           fillIcon: "fill-midnight-slate",
