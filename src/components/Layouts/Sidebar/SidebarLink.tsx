@@ -54,6 +54,7 @@ const Checkbox = ({ Svg, classname, id, activeTab }: CheckboxTypes) => {
     <div className="z-10 flex items-center ps-7">
       <input
         type="checkbox"
+        readOnly
         checked={id === activeTab}
         className={`w-4 h-4 mr-4 rounded-sm cursor-pointer ${
           id === activeTab

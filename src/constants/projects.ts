@@ -10,6 +10,7 @@ type Projects = {
   classname: {
     bgIcon: string;
   };
+  techstack: string[];
 };
 
 export const projects: Projects[] = [
@@ -24,6 +25,7 @@ export const projects: Projects[] = [
     classname: {
       bgIcon: "bg-blue-300",
     },
+    techstack: ["Flutter", "HTML"],
   },
   {
     title: "Projects 2",
@@ -36,6 +38,8 @@ export const projects: Projects[] = [
     classname: {
       bgIcon: "bg-purple-500",
     },
+
+    techstack: ["Gatsby", "HTML"],
   },
   {
     title: "Projects 3",
@@ -48,6 +52,8 @@ export const projects: Projects[] = [
     classname: {
       bgIcon: "bg-mint-green",
     },
+
+    techstack: ["React"],
   },
   {
     title: "Projects 4",
@@ -60,6 +66,8 @@ export const projects: Projects[] = [
     classname: {
       bgIcon: "bg-mint-green",
     },
+
+    techstack: ["React"],
   },
   {
     title: "Projects 5",
@@ -72,5 +80,6 @@ export const projects: Projects[] = [
     classname: {
       bgIcon: "bg-mint-green",
     },
+    techstack: ["React"],
   },
 ];

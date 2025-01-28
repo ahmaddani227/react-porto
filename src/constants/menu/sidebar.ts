@@ -157,7 +157,7 @@ export const sidebarProjects: SidebarMenu[] = [
     title: "projects",
     sidebarData: [
       {
-        id: "react",
+        id: "React",
         title: "React",
         Svg: RiReactjsFill,
         type: "checkbox",
@@ -166,7 +166,7 @@ export const sidebarProjects: SidebarMenu[] = [
         },
       },
       {
-        id: "html",
+        id: "Html",
         title: "HTML",
         Svg: RiHtml5Fill,
         type: "checkbox",

@@ -9,6 +9,8 @@ import { projects } from "../../../constants/projects";
 import Card from "../../../components/elements/Card";
 
 const Projects = () => {
+  const isDekstop = useMediaQuery();
+
   type Tab = {
     id: string;
     title: string;
@@ -17,7 +19,6 @@ const Projects = () => {
   type ExpandedFoldersType = {
     [key: string]: boolean;
   };
-  const isDekstop = useMediaQuery();
 
   const [expandedFolders, setExpandedFolders] = useState<ExpandedFoldersType>({
     Projects: isDekstop,
@@ -34,10 +35,8 @@ const Projects = () => {
     }));
   };
 
-  const [tabs, setTabs] = useState<Tab[]>([
-    { id: "Projects", title: "projects" },
-  ]);
-  const [activeTab, setActiveTab] = useState("Projects");
+  const [tabs, setTabs] = useState<Tab[]>([{ id: "All", title: "all;" }]);
+  const [activeTab, setActiveTab] = useState("All");
 
   const handleAddTab = (id: string, title: string) => {
     if (!tabs.find((tab) => tab.id === id)) {
@@ -53,6 +52,15 @@ const Projects = () => {
       setActiveTab(tabs[0]?.id);
     }
   };
+
+  const visibleProjects =
+    activeTab === "All"
+      ? projects
+      : projects.filter((item) =>
+          item.techstack.some(
+            (tech) => tech.toLowerCase() === activeTab.toLowerCase()
+          )
+        );
 
   return (
     <>
@@ -92,7 +100,7 @@ const Projects = () => {
           <Content>
             <div className="ps-2 pe-8 md:p-16">
               <div className="projects-container">
-                {projects.map((project, index) => (
+                {visibleProjects.map((project, index) => (
                   <Card key={index} data={project} />
                 ))}
               </div>
