@@ -11,7 +11,7 @@ import Card from "../../../components/elements/Card";
 const Projects = () => {
   const isDekstop = useMediaQuery();
 
-  type Tab = {
+  type TabType = {
     id: string;
     title: string;
   };
@@ -35,7 +35,7 @@ const Projects = () => {
     }));
   };
 
-  const [tabs, setTabs] = useState<Tab[]>([{ id: "All", title: "all;" }]);
+  const [tabs, setTabs] = useState<TabType[]>([{ id: "All", title: "all;" }]);
   const [activeTab, setActiveTab] = useState("All");
 
   const handleAddTab = (id: string, title: string) => {

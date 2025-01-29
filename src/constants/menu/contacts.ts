@@ -45,3 +45,5 @@ export const findMe: ContactsSidebar = {
     },
   ],
 };
+
+export const contacts = [contactsSidebar, findMe];

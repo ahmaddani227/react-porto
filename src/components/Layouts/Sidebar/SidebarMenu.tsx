@@ -42,7 +42,7 @@ const SidebarMenu = ({
         >
           <div
             className={`lg:flex flex-col ps-9 py-1.5 lg:p-1.5 space-y-2.5 border-midnight-slate ${
-              id !== "Contacts" && id !== "Projects" && "lg:border-b"
+              id !== "Projects" && "lg:border-b"
             }`}
           >
             {children}
