@@ -5,13 +5,14 @@ import { contacts } from "../../../constants/menu/contacts";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import ContactsLink from "../../../components/Layouts/Sidebar/ContactsLink";
 import Content from "../../../components/Layouts/Ide/Content";
-import CommentedContent from "../../../components/Layouts/Ide/CommentedContent";
-import FormContact from "./FormContact";
+import FormPreview from "./FormPreview";
+import InputField from "../../../components/elements/InputField";
+import Button from "../../../components/elements/Button";
 
 const Contact = () => {
   const isDekstop = useMediaQuery();
 
-  type Tab = {
+  type TabType = {
     id: string;
     title: string;
   };
@@ -35,7 +36,7 @@ const Contact = () => {
     }));
   };
 
-  const [tabs, setTabs] = useState<Tab[]>([
+  const [tabs, setTabs] = useState<TabType[]>([
     { id: "Contacts", title: "contacts" },
   ]);
   const [activeTab, setActiveTab] = useState("Contacts");
@@ -47,6 +48,18 @@ const Contact = () => {
       setActiveTab(tabs[0]?.id);
     }
   };
+
+  type FormType = {
+    name: string;
+    email: string;
+    message: string;
+  };
+
+  const [form, setForm] = useState<FormType>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   return (
     <>
@@ -80,24 +93,36 @@ const Contact = () => {
           />
           <Content>
             <div className="flex h-full lg:grid lg:grid-cols-2">
-              <FormContact />
-              <div className="hidden h-full lg:block">
-                <div className="p-4">
-                  <CommentedContent>
-                    <p className="text-periwinkle-blue">
-                      <span className="text-purple-400">const</span> button{" "}
-                      <span className="text-white">= </span>
-                      document.querySelector
-                      <div className="inline text-slate-muted">(</div>
-                      <span className="text-peach">'#sendBtn'</span>
-                      <div className="inline text-slate-muted">);</div>
-                    </p>
-                    <p className="text-periwinkle-blue">
-                      <span className="text-purple-400">const</span> message =
-                    </p>
-                  </CommentedContent>
-                </div>
+              <div id="form-contact" className="form-contact-container">
+                <form className="form-contact">
+                  <InputField
+                    onChange={(e) => {
+                      setForm({ ...form, name: e.target.value });
+                    }}
+                    title="_name"
+                    type="text"
+                    name="name"
+                  />
+                  <InputField
+                    onChange={(e) => {
+                      setForm({ ...form, email: e.target.value });
+                    }}
+                    title="_email"
+                    type="enail"
+                    name="email"
+                  />
+                  <InputField
+                    onChange={(e) => {
+                      setForm({ ...form, message: e.target.value });
+                    }}
+                    title="_message"
+                    name="message"
+                    isTextarea={true}
+                  />
+                  <Button>send-message</Button>
+                </form>
               </div>
+              <FormPreview dataForm={form} />
             </div>
           </Content>
         </IDE.Main>

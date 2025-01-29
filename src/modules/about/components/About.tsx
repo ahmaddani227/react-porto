@@ -9,12 +9,12 @@ import SidebarLink from "../../../components/Layouts/Sidebar/SidebarLink";
 import ContactsLink from "../../../components/Layouts/Sidebar/ContactsLink";
 
 function About() {
-  type Tab = {
+  type TabType = {
     id: string;
     title: string;
   };
 
-  const [tabs, setTabs] = useState<Tab[]>([
+  const [tabs, setTabs] = useState<TabType[]>([
     { id: "Experience", title: "experience" },
   ]);
   const [activeTab, setActiveTab] = useState("Experience");

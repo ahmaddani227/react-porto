@@ -2,9 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 
 interface CommentedContentProps {
   children: React.ReactNode;
+  isCommented?: boolean;
 }
 
-const CommentedContent: React.FC<CommentedContentProps> = ({ children }) => {
+const CommentedContent = ({
+  children,
+  isCommented = true,
+}: CommentedContentProps) => {
   const [lines, setLines] = useState(0);
   const textContainerRef = useRef<HTMLDivElement>(null);
 
@@ -14,7 +18,7 @@ const CommentedContent: React.FC<CommentedContentProps> = ({ children }) => {
       //   const fontSize = parseInt(style.fontSize, 10);
       const lineHeight = parseInt(style.lineHeight, 10);
       const maxHeight = textContainerRef.current.offsetHeight;
-      setLines(Math.ceil(maxHeight / lineHeight) + 1);
+      setLines(Math.ceil(maxHeight / lineHeight) + (isCommented ? 1 : 0));
     }
   };
 
@@ -32,21 +36,31 @@ const CommentedContent: React.FC<CommentedContentProps> = ({ children }) => {
   return (
     <div className="flex items-start font-fira">
       {/* Number and command (*) */}
-      <div className="flex-col hidden w-32 text-right lg:flex">
+      <div
+        className={`flex-col hidden ${
+          isCommented ? "w-32" : "w-auto pe-3"
+        } text-right lg:flex`}
+      >
         {Array.from({ length: lines }, (_, n) => n + 1).map((n) => (
           <div
-            className="grid justify-end grid-cols-2 text-slate-muted"
+            className={`grid justify-end ${
+              isCommented && "grid-cols-2"
+            }  text-slate-muted`}
             key={n}
           >
             <span className="col-span-1 mr-3">{n}</span>
-            {n === 1 && (
-              <div className="flex justify-center col-span-1">/**</div>
-            )}
-            {n > 1 && n < lines && (
-              <div className="flex justify-center col-span-1">*</div>
-            )}
-            {n === lines && (
-              <div className="flex justify-center col-span-1 pl-2">*/</div>
+            {isCommented && (
+              <>
+                {n === 1 && (
+                  <div className="flex justify-center col-span-1">/**</div>
+                )}
+                {n > 1 && n < lines && (
+                  <div className="flex justify-center col-span-1">*</div>
+                )}
+                {n === lines && (
+                  <div className="flex justify-center col-span-1 pl-2">*/</div>
+                )}
+              </>
             )}
           </div>
         ))}
@@ -54,7 +68,7 @@ const CommentedContent: React.FC<CommentedContentProps> = ({ children }) => {
 
       {/* Text */}
       <div className=" text-slate-muted" ref={textContainerRef}>
-        <br className="hidden lg:block" />
+        {isCommented && <br className="hidden lg:block" />}
         {children}
       </div>
     </div>
