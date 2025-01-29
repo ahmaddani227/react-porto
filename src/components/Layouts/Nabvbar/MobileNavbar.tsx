@@ -3,14 +3,14 @@ import { RiCloseFill, RiMenuLine } from "react-icons/ri";
 import NavbarLayouts from "../NavbarLayouts";
 import { Link } from "react-router-dom";
 import NavLink from "./NavLink";
-import { getBrandMenu, getRegularMenu } from "../../../utils/navbarMenu";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import {
+  navbarBrandMenu,
+  navbarMenuMobile,
+} from "../../../constants/menu/navbar";
 
 function MobileNavbar() {
-  const isDekstop = useMediaQuery();
-
-  const brandMenu = getBrandMenu();
-  const regularMenu = getRegularMenu(isDekstop);
+  const brandMenu = navbarBrandMenu;
+  const regularMenu = navbarMenuMobile;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 

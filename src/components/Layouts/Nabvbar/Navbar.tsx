@@ -2,18 +2,15 @@ import NavbarLayouts from "../NavbarLayouts";
 import { Link } from "react-router-dom";
 import NavLink from "./NavLink";
 import {
-  getBrandMenu,
-  getContactMenu,
-  getRegularMenu,
-} from "../../../utils/navbarMenu";
-import { useMediaQuery } from "../../../hooks/useMediaQuery";
+  navbarBrandMenu,
+  navbarContactMenu,
+  navbarMainMenu,
+} from "../../../constants/menu/navbar";
 
 function Navbar() {
-  const isDekstop = useMediaQuery();
-
-  const brandMenu = getBrandMenu();
-  const regularMenu = getRegularMenu(isDekstop);
-  const contactMenu = getContactMenu();
+  const brandMenu = navbarBrandMenu;
+  const regularMenu = navbarMainMenu;
+  const contactMenu = navbarContactMenu;
 
   return (
     <NavbarLayouts headerClassName="hidden lg:block" navClassName="h-[45px]">

@@ -4,12 +4,13 @@ type Menu = {
   pathName: string;
 };
 
-export const navbarMenu: Array<Menu> = [
-  {
-    title: "ahmad dani",
-    pathName: "/",
-    classname: "lg:min-w-[275px] lg:border-r",
-  },
+export const navbarBrandMenu: Menu = {
+  title: "ahmad dani",
+  pathName: "/",
+  classname: "lg:min-w-[275px] lg:border-r",
+};
+
+export const navbarMainMenu: Array<Menu> = [
   {
     title: "_hello",
     pathName: "/",
@@ -25,9 +26,12 @@ export const navbarMenu: Array<Menu> = [
     pathName: "/projects",
     classname: "lg:border-r",
   },
-  {
-    title: "_contact-me",
-    pathName: "/contact-me",
-    classname: "lg:border-l lg:text-slate-muted",
-  },
 ];
+
+export const navbarContactMenu: Menu = {
+  title: "_contact-me",
+  pathName: "/contact-me",
+  classname: "lg:border-l lg:text-slate-muted",
+};
+
+export const navbarMenuMobile = [...navbarMainMenu, navbarContactMenu];
