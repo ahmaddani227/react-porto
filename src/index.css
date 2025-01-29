@@ -20,6 +20,14 @@
   #tab-bar::-webkit-scrollbar {
     display: none;
   }
+
+  #form-contact::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  #form-contact::-webkit-scrollbar-thumb {
+    @apply bg-midnight-slate;
+  }
 }
 
 @layer components {
@@ -92,6 +100,27 @@
 
   .card-link {
     @apply px-2 py-1.5 rounded-lg bg-midnight-slate hover:bg-slate-muted/35 text-white text-sm;
+  }
+
+  /* Contacts */
+  .form-contact-container {
+    @apply flex items-center justify-center w-full h-full py-10 overflow-y-scroll lg:border-r border-midnight-slate lg:py-0;
+  }
+
+  .form-contact {
+    @apply w-[70%] sm:max-w-xs text-sm lg:max-w-xs text-slate-muted;
+  }
+
+  .form-input {
+    @apply bg-midnight-navy border-2 rounded-md focus:ring-2 ring-slate-muted/50 focus:border-slate-muted outline-none text-sm border-midnight-slate p-1.5;
+  }
+
+  .form-textarea {
+    @apply bg-midnight-navy border-2 resize-none rounded-md focus:ring-2 ring-slate-muted/50 focus:border-slate-muted outline-none text-sm border-midnight-slate p-1.5 h-32;
+  }
+
+  .form-btn {
+    @apply px-3.5 py-2.5 text-xs text-white rounded-lg bg-slate-muted/20 hover:bg-slate-muted/40;
   }
 }
 
