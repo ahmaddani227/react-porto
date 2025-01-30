@@ -9,7 +9,7 @@ const Sidebar = ({ children }: React.PropsWithChildren) => {
 };
 
 const Main = ({ children }: React.PropsWithChildren) => {
-  return <div className="flex flex-col w-full">{children}</div>;
+  return <div className="flex flex-col w-full overflow-hidden">{children}</div>;
 };
 
 const IDE = ({ children }: React.PropsWithChildren) => {
