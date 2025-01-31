@@ -70,6 +70,7 @@ const Projects = () => {
           <div className="flex flex-col w-full">
             {sidebarProjects.map((item) => (
               <SidebarMenu
+                classname="border-0"
                 key={item.id}
                 toggle={handleToggle}
                 expandedFolders={expandedFolders}
@@ -98,8 +99,8 @@ const Projects = () => {
             closeTab={handleCloseTab}
           />
           <Content>
-            <div className="ps-2 pe-8 md:p-16">
-              <div className="projects-container">
+            <div className="mt-5 px-fluid lg:p-16">
+              <div className=" projects-container">
                 {visibleProjects.map((project, index) => (
                   <Card key={index} data={project} />
                 ))}

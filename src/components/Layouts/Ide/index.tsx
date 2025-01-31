@@ -14,7 +14,7 @@ const Main = ({ children }: React.PropsWithChildren) => {
 
 const IDE = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className="flex flex-col h-auto space-y-5 lg:h-full lg:flex-row lg:space-y-0">
+    <div className="flex flex-col h-auto lg:h-full lg:flex-row lg:space-y-0">
       {children}
     </div>
   );

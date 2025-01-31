@@ -21,7 +21,7 @@ export default function TabBar({
   return (
     <div
       id="tab-bar"
-      className="w-full overflow-x-scroll overflow-y-hidden border-t border-b lg:border-t-0 border-midnight-slate h-[37px] lg:min-h-max"
+      className="w-full hidden lg:block overflow-x-scroll overflow-y-hidden border-t border-b lg:border-t-0 border-midnight-slate h-[37px] lg:min-h-max"
     >
       <div className="flex w-max">
         {tabs?.map((tab) => (

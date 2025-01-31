@@ -11,6 +11,7 @@ interface SidebarMenuProps {
     id: string;
     title: string;
   };
+  classname?: string;
 }
 
 const SidebarMenu = ({
@@ -18,6 +19,7 @@ const SidebarMenu = ({
   toggle,
   expandedFolders,
   data,
+  classname = "lg:border-b",
 }: SidebarMenuProps) => {
   const { id, title } = data;
 
@@ -36,14 +38,12 @@ const SidebarMenu = ({
           <p className="text-sm">{title}</p>
         </button>
         <div
-          className={`transition-all duration-300 lg:h-auto ease-in-out ${
+          className={`transition-all last:border-0 duration-300 lg:h-auto ease-in-out ${
             expandedFolders[id] ? `h-auto` : `h-0 overflow-hidden`
           }`}
         >
           <div
-            className={`lg:flex flex-col ps-9 py-1.5 lg:p-1.5 space-y-2.5 border-midnight-slate ${
-              id !== "Projects" && "lg:border-b"
-            }`}
+            className={`lg:flex flex-col ps-9  py-1.5 lg:p-1.5 space-y-2.5 border-midnight-slate ${classname}`}
           >
             {children}
           </div>

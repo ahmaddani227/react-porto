@@ -15,9 +15,9 @@ function About() {
   };
 
   const [tabs, setTabs] = useState<TabType[]>([
-    { id: "Experience", title: "experience" },
+    { id: "Dashboard", title: "dashboard" },
   ]);
-  const [activeTab, setActiveTab] = useState("Experience");
+  const [activeTab, setActiveTab] = useState("Dashboard");
 
   const handleAddTab = (id: string, title: string) => {
     if (!tabs.find((tab) => tab.id === id)) {
@@ -99,6 +99,7 @@ function About() {
               </SidebarMenu>
             ))}
             <SidebarMenu
+              classname="border-0"
               toggle={handleToggle}
               expandedFolders={expandedFolders}
               data={{ id, title }}

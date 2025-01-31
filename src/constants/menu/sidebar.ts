@@ -18,6 +18,7 @@ import {
   Sports,
   FavoriteGame,
 } from "../../modules/about/contents";
+import Dashboard from "../../modules/Dashboard";
 
 type SidebarMenuItem = {
   id: string;
@@ -26,7 +27,7 @@ type SidebarMenuItem = {
   Svg?: React.ElementType;
   Content?: React.ElementType;
   classname: {
-    fillIcon: string;
+    fillIcon?: string; // Default "fill-[#81A1C1]"
   };
 };
 
@@ -68,6 +69,15 @@ export const sidebarAbout: SidebarMenu[] = [
         Content: SoftSkills,
         classname: {
           fillIcon: "fill-[#3A49A4]",
+        },
+      },
+      {
+        id: "Dashboard",
+        title: "dashboard",
+        type: "file",
+        Content: Dashboard,
+        classname: {
+          fillIcon: "fill-[#81A1C1]",
         },
       },
     ],
