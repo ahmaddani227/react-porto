@@ -14,7 +14,7 @@ interface SidebarLinkProps {
     type: string;
     Svg?: React.ElementType;
     classname: {
-      fillIcon: string;
+      fillIcon?: string;
     };
   };
 }
@@ -38,7 +38,7 @@ const Folder = ({ id, activeTab, classname }: FolderTypes) => {
   );
 };
 
-const File = ({ classname }: { classname: string }) => {
+const File = ({ classname = "fill-[#81A1C1]" }: { classname?: string }) => {
   return <RiMarkdownFill className={`w-5 h-5 ${classname}`} />;
 };
 
@@ -73,6 +73,7 @@ const Checkbox = ({ Svg, classname, id, activeTab }: CheckboxTypes) => {
 
 const SidebarLink = ({ addTab, activeTab, data }: SidebarLinkProps) => {
   const { id, title, type, classname, Svg } = data;
+  const { fillIcon = "fill-[#81A1C1]" } = classname;
 
   return (
     <>
@@ -83,17 +84,13 @@ const SidebarLink = ({ addTab, activeTab, data }: SidebarLinkProps) => {
         } ${activeTab == id && "text-white"}`}
       >
         {type === "folder" && (
-          <Folder
-            id={id}
-            activeTab={activeTab}
-            classname={classname.fillIcon}
-          />
+          <Folder id={id} activeTab={activeTab} classname={fillIcon} />
         )}
-        {type === "file" && <File classname={classname.fillIcon} />}
+        {type === "file" && <File />}
         {Svg && type == "checkbox" && (
           <Checkbox
             Svg={Svg}
-            classname={classname.fillIcon}
+            classname={fillIcon}
             id={id}
             activeTab={activeTab}
           />

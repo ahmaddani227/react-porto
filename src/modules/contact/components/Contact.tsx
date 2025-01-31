@@ -69,6 +69,7 @@ const Contact = () => {
           <div className="flex flex-col w-full">
             {contacts.map((item) => (
               <SidebarMenu
+                classname={`${item.id === "Find Me Also" && "border-0"}`}
                 key={item.id}
                 toggle={handleToggle}
                 expandedFolders={expandedFolders}

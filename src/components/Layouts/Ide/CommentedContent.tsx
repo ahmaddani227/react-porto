@@ -38,8 +38,8 @@ const CommentedContent = ({
       {/* Number and command (*) */}
       <div
         className={`flex-col hidden ${
-          isCommented ? "w-32" : "w-auto pe-3"
-        } text-right lg:flex`}
+          !isCommented && "w-auto pe-3"
+        } text-right lg:flex w-32`}
       >
         {Array.from({ length: lines }, (_, n) => n + 1).map((n) => (
           <div
@@ -67,7 +67,7 @@ const CommentedContent = ({
       </div>
 
       {/* Text */}
-      <div className=" text-slate-muted" ref={textContainerRef}>
+      <div className="text-slate-muted" ref={textContainerRef}>
         {isCommented && <br className="hidden lg:block" />}
         {children}
       </div>
