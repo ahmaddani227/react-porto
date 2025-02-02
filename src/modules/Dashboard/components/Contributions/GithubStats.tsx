@@ -13,7 +13,6 @@ interface GithubStatsProps {
 }
 
 const GithubStats = ({ data }: GithubStatsProps) => {
-  // Default value
   const totalContributions = data?.totalContributions ?? 0;
   const weeks = data?.weeks ?? [];
   const months = data?.months ?? [];
