@@ -17,7 +17,7 @@ const Contributions = () => {
   }, []);
 
   return (
-    <>
+    <div className="my-4">
       <div className="flex items-center gap-2 mb-2">
         <RiGithubFill className="w-6 h-6" />
         <h2 className="text-lg font-medium ">Contributions</h2>
@@ -35,7 +35,7 @@ const Contributions = () => {
       </div>
       <GithubStats data={data} />
       <Calender data={data} />
-    </>
+    </div>
   );
 };
 

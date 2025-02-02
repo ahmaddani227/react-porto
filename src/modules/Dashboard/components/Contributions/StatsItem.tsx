@@ -1,13 +1,13 @@
 interface StatsItemProps {
   title: string;
-  data?: number;
+  value: number;
 }
 
-const StatsItem = ({ title, data = 0 }: StatsItemProps) => {
+const StatsItem = ({ title, value }: StatsItemProps) => {
   return (
     <div className="w-full p-3 border rounded-md border-midnight-slate">
-      <span>{title}</span>
-      <p className="text-2xl font-semibold text-green-600">{data}</p>
+      <span className="text-sm">{title}</span>
+      <p className="text-2xl font-semibold text-green-600">{value}</p>
     </div>
   );
 };

@@ -58,11 +58,11 @@ const GithubStats = ({ data }: GithubStatsProps) => {
   //   : 0;
 
   return (
-    <div className="grid justify-around grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
-      <StatsItem title="Total" data={totalContributions} />
-      <StatsItem title="Best Day" data={bestContribution} />
-      <StatsItem title="This Month" data={totalThisMonthContributions} />
-      <StatsItem title="This Week" data={totalThisWeekContributions} />
+    <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
+      <StatsItem title="Total" value={totalContributions} />
+      <StatsItem title="Best Day" value={bestContribution} />
+      <StatsItem title="This Month" value={totalThisMonthContributions} />
+      <StatsItem title="This Week" value={totalThisWeekContributions} />
     </div>
   );
 };

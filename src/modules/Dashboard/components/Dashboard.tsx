@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Content from "../../../components/Layouts/Ide/Content";
 import Contributions from "./Contributions";
+import Codewars from "./Codewars";
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
           <Suspense fallback={<div>Loading...</div>}>
             <Contributions />
           </Suspense>
+          <Codewars />
         </div>
       </div>
     </Content>

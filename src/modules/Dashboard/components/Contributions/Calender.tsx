@@ -108,31 +108,33 @@ const Calender = ({ data }: CalendarProps) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-center gap-2 text-sm">
-          <span>Less</span>
-          <ul className="flex gap-1">
-            <li className="w-3 h-3 rounded-sm bg-neutral-300" />
-            {contributionColors.map((item) => (
-              <li
-                key={item}
-                className="w-3 h-3 rounded-sm"
-                style={{ backgroundColor: item }}
-              />
-            ))}
-          </ul>
-          <span>More</span>
-        </div>
+      {data && (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-sm">
+            <span>Less</span>
+            <ul className="flex gap-1">
+              <li className="w-3 h-3 rounded-sm bg-neutral-300" />
+              {contributionColors.map((item) => (
+                <li
+                  key={item}
+                  className="w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item }}
+                />
+              ))}
+            </ul>
+            <span>More</span>
+          </div>
 
-        <div
-          className={`${
-            selectContribution?.date ? "opacity-100" : "opacity-0"
-          } rounded bg-midnight-slate px-2 text-sm dark:bg-neutral-700`}
-        >
-          {selectContribution?.count} contributions on {""}
-          {selectContribution?.date}
+          <div
+            className={`${
+              selectContribution?.date ? "opacity-100" : "opacity-0"
+            } rounded bg-midnight-slate px-2 text-sm dark:bg-neutral-700`}
+          >
+            {selectContribution?.count} contributions on {""}
+            {selectContribution?.date}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
