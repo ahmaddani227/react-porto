@@ -28,6 +28,10 @@
   #form-contact::-webkit-scrollbar-thumb {
     @apply bg-midnight-slate;
   }
+
+  #contributions::-webkit-scrollbar {
+    @apply hidden;
+  }
 }
 
 @layer components {

@@ -1,11 +1,13 @@
+import { GITHUB_ACCOUNTS } from "./github";
+
 type Sosmed = {
   username?: string;
   url: string;
 };
 
 export const GITHUB: Sosmed = {
-  username: "username",
-  url: "#",
+  username: GITHUB_ACCOUNTS.username,
+  url: `https://github.com/${GITHUB_ACCOUNTS.username}`,
 };
 
 export const LINKEDIN: Sosmed = { url: "#" };
