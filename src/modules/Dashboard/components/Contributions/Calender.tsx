@@ -1,4 +1,4 @@
-import Square from "./Square";
+import { useState } from "react";
 
 interface Contribution {
   date: string;
@@ -25,20 +25,50 @@ interface CalendarProps {
 }
 
 const Calender = ({ data }: CalendarProps) => {
+  const [selectContribution, setSelectContribution] = useState<{
+    count: number | null;
+    date: string | null;
+  }>({
+    count: null,
+    date: null,
+  });
+
+  const weeks = data?.weeks ?? [];
+  const months =
+    data?.months?.map((month: Month) => {
+      const filterContributionDay = weeks
+        .filter(
+          (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7)
+        )
+        .map((item) => item.contributionDays)
+        .flat(1);
+      const getContributionsByMonth = filterContributionDay.reduce(
+        (previousValue, currentValue) =>
+          previousValue + currentValue.contributionCount,
+        0
+      );
+
+      return {
+        ...month,
+        contributionsCount: getContributionsByMonth,
+      };
+    }) ?? [];
+  const contributionColors = data?.colors ?? [];
+
   return (
     <div className="p-3.5 border rounded-md lg:p-5 border-midnight-slate">
       <div
         id="contributions"
-        className="w-full h-full overflow-x-auto xl:overflow-hidden"
+        className="w-full h-full mb-2 overflow-x-auto xl:overflow-hidden"
       >
         <div className="min-w-[640px] w-max sm:w-auto">
           {!data && <p>Invalid Gthub Token!</p>}
           <div className="flex text-xs md:text-sm">
-            {data &&
-              data.months.map((month: any, index: number) => {
+            {months &&
+              months.map((month) => {
                 return (
                   <span
-                    key={index}
+                    key={month.firstDay}
                     style={{ minWidth: `${month.totalWeeks * 1.9}%` }}
                   >
                     {month.totalWeeks > 2 && month.name}
@@ -47,26 +77,64 @@ const Calender = ({ data }: CalendarProps) => {
               })}
           </div>
           <div className="flex gap-px md:gap-[3px]">
-            {data &&
-              data.weeks.slice(1).map((week: any, index: number) => (
-                <ul
-                  key={index}
-                  className="flex flex-col w-full gap-px md:gap-1"
-                >
-                  {week.contributionDays.map(
-                    (contributionDay: any, index: number) => {
-                      const color =
-                        contributionDay.contributionCount == 0
-                          ? ""
-                          : contributionDay.color;
-                      return <Square color={color} key={index} />;
-                    }
-                  )}
-                </ul>
-              ))}
+            {weeks?.map((week) => (
+              <div
+                key={week.firstDay}
+                className="flex flex-col w-full gap-px md:gap-1"
+              >
+                {week.contributionDays.map((contribution) => {
+                  const backgroundColor =
+                    contribution.contributionCount > 0 && contribution.color;
+                  return (
+                    <span
+                      key={contribution.date}
+                      style={backgroundColor ? { backgroundColor } : undefined}
+                      className={`aspect-square bg-midnight-slate rounded-[3.5px]`}
+                      onMouseEnter={() =>
+                        setSelectContribution({
+                          count: contribution.contributionCount,
+                          date: contribution.date,
+                        })
+                      }
+                      onMouseLeave={() =>
+                        setSelectContribution({ count: null, date: null })
+                      }
+                    />
+                  );
+                })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {data && (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-sm">
+            <span>Less</span>
+            <ul className="flex gap-1">
+              <li className="w-3 h-3 rounded-sm bg-neutral-300" />
+              {contributionColors.map((item) => (
+                <li
+                  key={item}
+                  className="w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: item }}
+                />
+              ))}
+            </ul>
+            <span>More</span>
+          </div>
+
+          <div
+            className={`${
+              selectContribution?.date ? "opacity-100" : "opacity-0"
+            } rounded bg-midnight-slate px-2 text-sm dark:bg-neutral-700`}
+          >
+            {selectContribution?.count} contributions on {""}
+            {selectContribution?.date}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
