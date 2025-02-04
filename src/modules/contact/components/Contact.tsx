@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import IDE from "../../../components/Layouts/Ide";
 import SidebarMenu from "../../../components/Layouts/Sidebar/SidebarMenu";
 import { contacts } from "../../../constants/menu/contacts";
@@ -8,46 +7,23 @@ import Content from "../../../components/Layouts/Ide/Content";
 import FormPreview from "./FormPreview";
 import InputField from "../../../components/elements/InputField";
 import Button from "../../../components/elements/Button";
+import { useIde } from "../../../hooks/useIde";
+import { useState } from "react";
 
 const Contact = () => {
   const isDekstop = useMediaQuery();
 
-  type TabType = {
-    id: string;
-    title: string;
-  };
+  const initialTabs = [{ id: "Contacts", title: "contacts" }];
+  const initialExpandedFolders = { Contacts: isDekstop };
 
-  type ExpandedFoldersType = {
-    [key: string]: boolean;
-  };
-
-  const [expandedFolders, setExpandedFolders] = useState<ExpandedFoldersType>({
-    Projects: isDekstop,
-  });
-
-  useEffect(() => {
-    setExpandedFolders({ Projects: isDekstop });
-  }, [isDekstop]);
-
-  const handleToggle = (id: string) => {
-    setExpandedFolders((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
-  const [tabs, setTabs] = useState<TabType[]>([
-    { id: "Contacts", title: "contacts" },
-  ]);
-  const [activeTab, setActiveTab] = useState("Contacts");
-
-  const handleCloseTab = (e: any, tabId: string) => {
-    e.stopPropagation();
-    setTabs((prev) => prev.filter((tab) => tab.id !== tabId));
-    if (activeTab === tabId) {
-      setActiveTab(tabs[0]?.id);
-    }
-  };
+  const {
+    tabs,
+    activeTab,
+    setActiveTab,
+    expandedFolders,
+    handleCloseTab,
+    handleToggleFolder,
+  } = useIde(isDekstop, initialTabs, initialExpandedFolders);
 
   type FormType = {
     name: string;
@@ -73,7 +49,7 @@ const Contact = () => {
                   item.id === "Find Me Also" ? "border-0" : "border-b"
                 }`}
                 key={item.id}
-                toggle={handleToggle}
+                toggle={handleToggleFolder}
                 expandedFolders={expandedFolders}
                 data={item}
               >

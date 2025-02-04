@@ -18,7 +18,7 @@ interface CodewarsData {
 }
 
 const Codewars = () => {
-  const [codewarsData, setCodewarsData] = useState<CodewarsData | 0>(0);
+  const [codewarsData, setCodewarsData] = useState<CodewarsData | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -28,42 +28,44 @@ const Codewars = () => {
     fetchData();
   }, []);
 
-  if (!codewarsData) return 0;
+  // if (!codewarsData) return <p>Loading...</p>;
+
+  const {
+    honor = 0,
+    ranks = {} as CodewarsData["ranks"],
+    codeChallenges = {} as CodewarsData["codeChallenges"],
+  } = codewarsData || {};
+
+  const { overall = { rank: 0, score: 0 } } = ranks;
+  const { rank = 0, score = 0 } = overall;
+  const { totalCompleted = 0 } = codeChallenges;
 
   return (
-    <>
-      <div className="my-4">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="w-5 h-5 overflow-hidden rounded-full">
-            <SiCodewars className="w-full h-full" />
-          </div>
-          <h2 className="text-lg font-medium ">Codewars Statistic</h2>
+    <div className="my-4">
+      <div className="flex items-center gap-2 mb-2">
+        <div className="w-5 h-5 overflow-hidden rounded-full">
+          <SiCodewars className="w-full h-full" />
         </div>
-        <div className="flex flex-col justify-between gap-2 mb-2 text-sm md:items-center md:flex-row">
-          <p>My statistic score on codewars.</p>
-          <a
-            href={`https://codewars.com/`}
-            target="_blank"
-            aria-label="View On Codewars"
-            className="duration-100 hover:opacity-70"
-          >
-            @codewars
-          </a>
-        </div>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          <StatsItem title="Honor" value={codewarsData?.honor} />
-          <StatsItem
-            title="Rank"
-            value={Math.abs(codewarsData?.ranks.overall.rank)}
-          />
-          <StatsItem
-            title="Total Completed Kata"
-            value={codewarsData?.codeChallenges.totalCompleted}
-          />
-          <StatsItem title="Score" value={codewarsData?.ranks.overall.score} />
-        </div>
+        <h2 className="text-lg font-medium ">Codewars Statistic</h2>
       </div>
-    </>
+      <div className="flex flex-col justify-between gap-2 mb-2 text-sm md:items-center md:flex-row">
+        <p>My statistic score on Codewars.</p>
+        <a
+          href="https://codewars.com/"
+          target="_blank"
+          aria-label="View On Codewars"
+          className="duration-100 hover:opacity-70"
+        >
+          @codewars
+        </a>
+      </div>
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <StatsItem title="Honor" value={honor} />
+        <StatsItem title="Rank" value={Math.abs(rank)} />
+        <StatsItem title="Total Completed Kata" value={totalCompleted} />
+        <StatsItem title="Score" value={score} />
+      </div>
+    </div>
   );
 };
 

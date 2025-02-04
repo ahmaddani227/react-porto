@@ -4,7 +4,7 @@ import Content from "../../../../components/Layouts/Ide/Content";
 export default function Bio() {
   return (
     <Content>
-      <div className="px-4 py-2">
+      <div className="py-2 lg:px-4 px-fluid">
         <CommentedContent>
           <h1 className="font-medium">About me</h1>
           <p className="text-justify">

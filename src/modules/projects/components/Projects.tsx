@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import IDE from "../../../components/Layouts/Ide";
 import { sidebarProjects } from "../../../constants/menu/sidebar";
@@ -7,51 +6,23 @@ import SidebarLink from "../../../components/Layouts/Sidebar/SidebarLink";
 import Content from "../../../components/Layouts/Ide/Content";
 import { projects } from "../../../constants/projects";
 import Card from "../../../components/elements/Card";
+import { useIde } from "../../../hooks/useIde";
 
 const Projects = () => {
   const isDekstop = useMediaQuery();
 
-  type TabType = {
-    id: string;
-    title: string;
-  };
+  const initialTabs = [{ id: "All", title: "all" }];
+  const initialExpandedFolders = { Projects: isDekstop };
 
-  type ExpandedFoldersType = {
-    [key: string]: boolean;
-  };
-
-  const [expandedFolders, setExpandedFolders] = useState<ExpandedFoldersType>({
-    Projects: isDekstop,
-  });
-
-  useEffect(() => {
-    setExpandedFolders({ Projects: isDekstop });
-  }, [isDekstop]);
-
-  const handleToggle = (id: string) => {
-    setExpandedFolders((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
-  const [tabs, setTabs] = useState<TabType[]>([{ id: "All", title: "all;" }]);
-  const [activeTab, setActiveTab] = useState("All");
-
-  const handleAddTab = (id: string, title: string) => {
-    if (!tabs.find((tab) => tab.id === id)) {
-      setTabs((prev) => [...prev, { id, title }]);
-    }
-    setActiveTab(id);
-  };
-
-  const handleCloseTab = (e: any, tabId: string) => {
-    e.stopPropagation();
-    setTabs((prev) => prev.filter((tab) => tab.id !== tabId));
-    if (activeTab === tabId) {
-      setActiveTab(tabs[0]?.id);
-    }
-  };
+  const {
+    tabs,
+    activeTab,
+    setActiveTab,
+    expandedFolders,
+    handleAddTab,
+    handleCloseTab,
+    handleToggleFolder,
+  } = useIde(isDekstop, initialTabs, initialExpandedFolders);
 
   const visibleProjects =
     activeTab === "All"
@@ -72,7 +43,7 @@ const Projects = () => {
               <SidebarMenu
                 classname="border-0"
                 key={item.id}
-                toggle={handleToggle}
+                toggle={handleToggleFolder}
                 expandedFolders={expandedFolders}
                 data={item}
               >
@@ -99,7 +70,7 @@ const Projects = () => {
             closeTab={handleCloseTab}
           />
           <Content>
-            <div className="mt-5 px-fluid lg:p-16">
+            <div className="my-5 px-fluid lg:p-16">
               <div className=" projects-container">
                 {visibleProjects.map((project, index) => (
                   <Card key={index} data={project} />
