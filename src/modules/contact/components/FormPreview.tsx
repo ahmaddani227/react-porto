@@ -15,7 +15,7 @@ const FormPreview = ({ dataForm }: FormPreviewType) => {
   const formattedDate = currentDate.toDateString();
 
   return (
-    <div className="hidden h-full lg:block">
+    <div className="hidden h-full overflow-hidden lg:block">
       <div className="p-4">
         <CommentedContent isCommented={false}>
           <p className="text-periwinkle-blue">
@@ -38,7 +38,7 @@ const FormPreview = ({ dataForm }: FormPreviewType) => {
             email: <span className="text-peach">"{email}"</span>
             <span className="text-slate-muted">,</span>
           </p>
-          <p className="ps-7 text-periwinkle-blue">
+          <p className="break-all ps-7 text-periwinkle-blue">
             message: <span className="text-peach">"{message}"</span>
             <span className="text-slate-muted">,</span>
           </p>
