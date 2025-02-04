@@ -4,7 +4,7 @@ import Content from "../../../../components/Layouts/Ide/Content";
 export default function Interest() {
   return (
     <Content>
-      <div className="min-h-full px-4 py-2">
+      <div className="py-2 lg:px-4 px-fluid">
         <CommentedContent>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet

@@ -70,7 +70,7 @@ const Projects = () => {
             closeTab={handleCloseTab}
           />
           <Content>
-            <div className="mt-5 px-fluid lg:p-16">
+            <div className="my-5 px-fluid lg:p-16">
               <div className=" projects-container">
                 {visibleProjects.map((project, index) => (
                   <Card key={index} data={project} />
