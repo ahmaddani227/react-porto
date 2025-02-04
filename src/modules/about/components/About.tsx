@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { sidebarAbout } from "../../../constants/menu/sidebar";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { contactsSidebar } from "../../../constants/menu/contacts";
@@ -7,37 +7,9 @@ import ActivityBar from "../../../components/Layouts/Sidebar/ActivityBar";
 import SidebarMenu from "../../../components/Layouts/Sidebar/SidebarMenu";
 import SidebarLink from "../../../components/Layouts/Sidebar/SidebarLink";
 import ContactsLink from "../../../components/Layouts/Sidebar/ContactsLink";
+import { useIde } from "../../../hooks/useIde";
 
 function About() {
-  type TabType = {
-    id: string;
-    title: string;
-  };
-
-  const [tabs, setTabs] = useState<TabType[]>([
-    { id: "Dashboard", title: "dashboard" },
-  ]);
-  const [activeTab, setActiveTab] = useState("Dashboard");
-
-  const handleAddTab = (id: string, title: string) => {
-    if (!tabs.find((tab) => tab.id === id)) {
-      setTabs((prev) => [...prev, { id, title }]);
-    }
-    setActiveTab(id);
-  };
-
-  const handleCloseTab = (e: any, tabId: string) => {
-    e.stopPropagation();
-    setTabs((prev) => prev.filter((tab) => tab.id !== tabId));
-    if (activeTab === tabId) {
-      setActiveTab(tabs[0]?.id);
-    }
-  };
-
-  const ActiveContent = sidebarAbout
-    .flatMap((item) => item.sidebarData)
-    .find((subItem) => subItem.id === activeTab)?.Content;
-
   const isDekstop = useMediaQuery();
 
   const defaultExpandedFolders = (isDekstop: boolean) => {
@@ -47,20 +19,22 @@ function About() {
     }, {});
   };
 
-  const [expandedFolders, setExpandedFolders] = useState(
-    defaultExpandedFolders(isDekstop)
-  );
+  const initialTabs = [{ id: "Dashboard", title: "dashboard" }];
+  const initialExpandedFolders = defaultExpandedFolders(isDekstop);
 
-  useEffect(() => {
-    setExpandedFolders(defaultExpandedFolders(isDekstop));
-  }, [isDekstop]);
+  const {
+    tabs,
+    activeTab,
+    setActiveTab,
+    expandedFolders,
+    handleAddTab,
+    handleCloseTab,
+    handleToggleFolder,
+  } = useIde(isDekstop, initialTabs, initialExpandedFolders);
 
-  const handleToggle = (id: string) => {
-    setExpandedFolders((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  const ActiveContent = sidebarAbout
+    .flatMap((item) => item.sidebarData)
+    .find((subItem) => subItem.id === activeTab)?.Content;
 
   const [activeActivityBar, setActiveActivityBar] =
     useState("Profesional Info");
@@ -84,7 +58,7 @@ function About() {
             {menu.map((item) => (
               <SidebarMenu
                 key={item.id}
-                toggle={handleToggle}
+                toggle={handleToggleFolder}
                 expandedFolders={expandedFolders}
                 data={item}
               >
@@ -100,7 +74,7 @@ function About() {
             ))}
             <SidebarMenu
               classname="border-0"
-              toggle={handleToggle}
+              toggle={handleToggleFolder}
               expandedFolders={expandedFolders}
               data={{ id, title }}
             >
