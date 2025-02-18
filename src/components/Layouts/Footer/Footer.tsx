@@ -6,21 +6,30 @@ import { footerMenu } from "../../../constants/menu/footer";
 
 function Footer() {
   return (
-    <FooterLayouts classname="hidden lg:block">
-      <div className="flex h-full">
+    <FooterLayouts classname="">
+      <div className="flex justify-between w-full h-full lg:justify-normal">
         <h1 className="footer-title">find me in:</h1>
-        {footerMenu.map((item: any, index: number) => (
-          <SosmedLink
-            key={index}
-            url={item.url}
-            Svg={item.Svg}
-            classname="px-3 border-r"
-          />
-        ))}
+        <div className="flex justify-end lg:justify-normal">
+          {footerMenu.map((item: any, index: number) => (
+            <SosmedLink
+              key={index}
+              url={item.url}
+              Svg={item.Svg}
+              classname="px-3 border-r first:border-l last:border-r-0"
+            />
+          ))}
+        </div>
       </div>
-      <SosmedLink url={GITHUB.url} Svg={RiGithubFill} classname="px-6 border-l">
-        {GITHUB.username}
-      </SosmedLink>
+
+      <div className="hidden lg:inline">
+        <SosmedLink
+          url={GITHUB.url}
+          Svg={RiGithubFill}
+          classname="px-6 border-l"
+        >
+          {GITHUB.username}
+        </SosmedLink>
+      </div>
     </FooterLayouts>
   );
 }

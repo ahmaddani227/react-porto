@@ -1,4 +1,5 @@
 import {
+  RiDashboardLine,
   RiGamepadFill,
   RiHtml5Fill,
   RiReactjsFill,
@@ -167,8 +168,17 @@ export const sidebarProjects: SidebarMenu[] = [
     title: "projects",
     sidebarData: [
       {
+        id: "All",
+        title: "all",
+        Svg: RiDashboardLine,
+        type: "checkbox",
+        classname: {
+          fillIcon: "fill-midnight-slate",
+        },
+      },
+      {
         id: "React",
-        title: "React",
+        title: "react",
         Svg: RiReactjsFill,
         type: "checkbox",
         classname: {
@@ -177,7 +187,7 @@ export const sidebarProjects: SidebarMenu[] = [
       },
       {
         id: "Html",
-        title: "HTML",
+        title: "html",
         Svg: RiHtml5Fill,
         type: "checkbox",
         classname: {

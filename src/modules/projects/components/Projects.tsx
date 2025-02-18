@@ -20,8 +20,8 @@ const Projects = () => {
     setActiveTab,
     expandedFolders,
     handleAddTab,
-    handleCloseTab,
     handleToggleFolder,
+    handleCloseTab,
   } = useIde(isDekstop, initialTabs, initialExpandedFolders);
 
   const visibleProjects =
