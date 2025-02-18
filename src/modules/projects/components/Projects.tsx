@@ -20,7 +20,6 @@ const Projects = () => {
     setActiveTab,
     expandedFolders,
     handleAddTab,
-    handleCloseTab,
     handleToggleFolder,
   } = useIde(isDekstop, initialTabs, initialExpandedFolders);
 
@@ -67,7 +66,6 @@ const Projects = () => {
             activeTab={activeTab}
             tabs={tabs}
             setActiveTab={setActiveTab}
-            closeTab={handleCloseTab}
           />
           <Content>
             <div className="my-5 px-fluid lg:p-16">

@@ -16,14 +16,8 @@ const Contact = () => {
   const initialTabs = [{ id: "Contacts", title: "contacts" }];
   const initialExpandedFolders = { Contacts: isDekstop };
 
-  const {
-    tabs,
-    activeTab,
-    setActiveTab,
-    expandedFolders,
-    handleCloseTab,
-    handleToggleFolder,
-  } = useIde(isDekstop, initialTabs, initialExpandedFolders);
+  const { tabs, activeTab, setActiveTab, expandedFolders, handleToggleFolder } =
+    useIde(isDekstop, initialTabs, initialExpandedFolders);
 
   type FormType = {
     name: string;
@@ -68,7 +62,6 @@ const Contact = () => {
             activeTab={activeTab}
             tabs={tabs}
             setActiveTab={setActiveTab}
-            closeTab={handleCloseTab}
           />
           <Content>
             <div className="flex h-full lg:grid lg:grid-cols-2">
