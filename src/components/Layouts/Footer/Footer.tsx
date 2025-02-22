@@ -15,7 +15,7 @@ function Footer() {
               key={index}
               url={item.url}
               Svg={item.Svg}
-              classname="px-3 border-r first:border-l last:border-r-0"
+              classname="px-3 border-r first:border-l last:border-r-0 lg:last:border-r"
             />
           ))}
         </div>
