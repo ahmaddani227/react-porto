@@ -1,3 +1,5 @@
+import { GITHUB_ACCOUNTS } from "../../../constants/github";
+
 function Profile() {
   return (
     <div className="w-full lg:w-1/2">
@@ -18,11 +20,11 @@ function Profile() {
           <span className="text-periwinkle-blue">const</span>{" "}
           <span className="text-mint-green">githubLink</span> ={" "}
           <a
-            href="#"
+            href={`https://github.com/${GITHUB_ACCOUNTS.username}`}
             target="_blank"
             className="underline underline-offset-4 text-peach"
           >
-            &quot;https://github.com/ahmaddani227&quot;
+            &quot;https://github.com/{GITHUB_ACCOUNTS.username}&quot;
           </a>
         </p>
       </div>

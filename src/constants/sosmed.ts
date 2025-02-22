@@ -10,6 +10,6 @@ export const GITHUB: Sosmed = {
   url: `https://github.com/${GITHUB_ACCOUNTS.username}`,
 };
 
-export const LINKEDIN: Sosmed = { url: "#" };
-export const INSTAGRAM: Sosmed = { url: "#" };
-export const TIKTOK: Sosmed = { url: "#" };
+export const LINKEDIN: Sosmed = { url: "https://linkedin.com/in/ahmaddaani" };
+export const INSTAGRAM: Sosmed = { url: "https://instagram.com/ahmaddaani_" };
+export const TIKTOK: Sosmed = { url: "https://tiktok.com/@ahmaddaani_" };
