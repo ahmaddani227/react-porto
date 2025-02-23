@@ -5,8 +5,27 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply text-white bg-[#010C15] m-4 lg:m-[30px] font-fira;
+  }
+
+  html {
+    height: stretch;
+    width: stretch;
+  }
+
+  body {
+    height: stretch;
+    width: stretch;
+  }
+
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  #root {
+    @apply flex flex-col justify-between border rounded-lg border-midnight-slate bg-midnight-blue lg:h-full h-auto w-full;
+    min-height: stretch;
   }
 
   #content::-webkit-scrollbar {
