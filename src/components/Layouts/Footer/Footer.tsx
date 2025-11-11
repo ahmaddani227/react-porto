@@ -3,6 +3,7 @@ import FooterLayouts from "../FooterLayouts";
 import SosmedLink from "./SosmedLink";
 import { GITHUB } from "../../../constants/sosmed";
 import { footerMenu } from "../../../constants/menu/footer";
+import { FooterMenuType } from "../../../types/menu";
 
 function Footer() {
   return (
@@ -10,7 +11,7 @@ function Footer() {
       <div className="flex justify-between w-full h-full lg:justify-normal">
         <h1 className="footer-title">find me in:</h1>
         <div className="flex justify-end lg:justify-normal">
-          {footerMenu.map((item: any, index: number) => (
+          {footerMenu.map((item: FooterMenuType, index: number) => (
             <SosmedLink
               key={index}
               url={item.url}

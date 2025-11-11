@@ -1,9 +1,9 @@
 import { GITHUB_ACCOUNTS } from "./github";
 
-type Sosmed = {
+interface Sosmed {
   username?: string;
   url: string;
-};
+}
 
 export const GITHUB: Sosmed = {
   username: GITHUB_ACCOUNTS.username,

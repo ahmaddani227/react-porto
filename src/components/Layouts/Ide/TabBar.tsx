@@ -1,12 +1,12 @@
 import { RiCloseFill } from "react-icons/ri";
 
-type TabType = {
+interface Tab {
   id: string;
   title: string;
-};
+}
 
 interface TabBarProps {
-  tabs: TabType[];
+  tabs: Tab[];
   activeTab: string;
   setActiveTab: (tabId: string) => void;
   closeTab?: (e: React.MouseEvent<HTMLButtonElement>, tabId: string) => void;

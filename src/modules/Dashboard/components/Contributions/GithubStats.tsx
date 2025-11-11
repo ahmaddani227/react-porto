@@ -1,21 +1,14 @@
+import {
+  ContributionMonth,
+  ContributionWeek,
+  GithubStatsProps,
+} from "../../../../types/github";
 import StatsItem from "./StatsItem";
-
-interface Month {
-  totalWeeks: number;
-}
-
-interface GithubStatsProps {
-  data?: {
-    totalContributions?: number;
-    weeks?: { contributionDays: { contributionCount: number }[] }[];
-    months: Month[];
-  };
-}
 
 const GithubStats = ({ data }: GithubStatsProps) => {
   const totalContributions = data?.totalContributions ?? 0;
-  const weeks = data?.weeks ?? [];
-  const months = data?.months ?? [];
+  const weeks: ContributionWeek[] = data?.weeks ?? [];
+  const months: ContributionMonth[] = data?.months ?? [];
 
   // Last week's contribution
   const lastWeek = weeks.length > 0 ? weeks[weeks.length - 1] : undefined;

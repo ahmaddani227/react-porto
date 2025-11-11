@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-type TabType = {
+interface TabType {
   id: string;
   title: string;
-};
+}
 
-type ExpandedFoldersType = {
+interface ExpandedFoldersType {
   [key: string]: boolean;
-};
+}
 
 export const useIde = (
   isDekstop: boolean,

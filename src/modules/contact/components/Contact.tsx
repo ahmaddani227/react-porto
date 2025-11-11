@@ -9,6 +9,7 @@ import InputField from "../../../components/elements/InputField";
 import Button from "../../../components/elements/Button";
 import { useIde } from "../../../hooks/useIde";
 import { useState } from "react";
+import { FormType } from "../types/form.type";
 
 const Contact = () => {
   const isDekstop = useMediaQuery();
@@ -18,12 +19,6 @@ const Contact = () => {
 
   const { tabs, activeTab, setActiveTab, expandedFolders, handleToggleFolder } =
     useIde(isDekstop, initialTabs, initialExpandedFolders);
-
-  type FormType = {
-    name: string;
-    email: string;
-    message: string;
-  };
 
   const [form, setForm] = useState<FormType>({
     name: "",

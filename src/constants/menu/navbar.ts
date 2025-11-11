@@ -1,16 +1,12 @@
-type Menu = {
-  title: string;
-  classname?: string;
-  pathName: string;
-};
+import { NavbarMenuType } from "../../types/menu";
 
-export const navbarBrandMenu: Menu = {
+export const navbarBrandMenu: NavbarMenuType = {
   title: "ahmad dani",
   pathName: "/",
   classname: "lg:min-w-[275px] lg:border-r",
 };
 
-export const navbarMainMenu: Array<Menu> = [
+export const navbarMainMenu: NavbarMenuType[] = [
   {
     title: "_hello",
     pathName: "/",
@@ -28,7 +24,7 @@ export const navbarMainMenu: Array<Menu> = [
   },
 ];
 
-export const navbarContactMenu: Menu = {
+export const navbarContactMenu: NavbarMenuType = {
   title: "_contact-me",
   pathName: "/contact-me",
   classname: "lg:border-l lg:text-slate-muted",

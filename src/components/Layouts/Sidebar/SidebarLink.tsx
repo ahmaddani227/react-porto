@@ -19,11 +19,11 @@ interface SidebarLinkProps {
   };
 }
 
-type FolderTypes = {
+interface FolderTypes {
   activeTab: string;
   id: string;
   classname: string;
-};
+}
 
 const Folder = ({ id, activeTab, classname }: FolderTypes) => {
   return (
@@ -42,12 +42,12 @@ const File = ({ classname = "fill-[#81A1C1]" }: { classname?: string }) => {
   return <RiMarkdownFill className={`w-5 h-5 ${classname}`} />;
 };
 
-type CheckboxTypes = {
+interface CheckboxTypes {
   Svg: ElementType;
   classname: string;
   id: string;
   activeTab: string;
-};
+}
 
 const Checkbox = ({ Svg, classname, id, activeTab }: CheckboxTypes) => {
   return (

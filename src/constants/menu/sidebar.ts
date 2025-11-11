@@ -20,24 +20,7 @@ import {
   FavoriteGame,
 } from "../../modules/about/contents";
 import Dashboard from "../../modules/Dashboard";
-
-type SidebarMenuItem = {
-  id: string;
-  title: string;
-  type: string;
-  Svg?: React.ElementType;
-  Content?: React.ElementType;
-  classname: {
-    fillIcon?: string; // Default "fill-[#81A1C1]"
-  };
-};
-
-type SidebarMenu = {
-  id: string;
-  title: string;
-  Svg?: any;
-  sidebarData: SidebarMenuItem[];
-};
+import { SidebarMenu } from "../../types/menu";
 
 export const sidebarAbout: SidebarMenu[] = [
   {

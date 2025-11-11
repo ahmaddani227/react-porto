@@ -1,11 +1,7 @@
 import Profile from "./Profile";
 import Snake from "./Snake";
 
-interface CircleBlurProps {
-  classname: string;
-}
-
-const CircleBlur = ({ classname }: CircleBlurProps) => {
+const CircleBlur = ({ classname }: { classname: string }) => {
   return <div className={classname} />;
 };
 

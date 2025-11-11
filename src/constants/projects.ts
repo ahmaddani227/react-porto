@@ -1,17 +1,5 @@
 import { SiFlutter, SiGatsby, SiReact } from "react-icons/si";
-
-type Projects = {
-  title: string;
-  subtitle: string;
-  Svg: React.ElementType;
-  description: string;
-  image: string;
-  github: string;
-  classname: {
-    bgIcon: string;
-  };
-  techstack: string[];
-};
+import { Projects } from "../types/menu";
 
 export const projects: Projects[] = [
   {

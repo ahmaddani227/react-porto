@@ -1,7 +1,7 @@
-type LabelType = {
+interface LabelType {
   title: string;
   htmlFor: string;
-};
+}
 
 const Label = ({ title, ...props }: LabelType) => {
   return (

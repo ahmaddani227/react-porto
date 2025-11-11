@@ -1,16 +1,5 @@
 import { RiMailFill, RiPhoneFill, RiShareBoxFill } from "react-icons/ri";
-
-type ContactMenuItem = {
-  title: string;
-  url: string;
-  Svg: React.ElementType;
-};
-
-type ContactsSidebar = {
-  id: string;
-  title: string;
-  contactsMenu: ContactMenuItem[];
-};
+import { ContactsSidebar } from "../../types/menu";
 
 export const contactsSidebar: ContactsSidebar = {
   id: "Contacts",
