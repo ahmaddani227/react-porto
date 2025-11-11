@@ -11,7 +11,10 @@ const CircleBlur = ({ classname }: CircleBlurProps) => {
 
 function Home() {
   return (
-    <section id="home" className="lg:pl-[16rem] h-full flex items-center">
+    <section
+      id="home"
+      className="lg:pl-[16rem] h-full flex flex-1 items-center"
+    >
       <CircleBlur classname="circle-blur-green" />
       <CircleBlur classname="circle-blur-blue" />
       <div className="w-full h-auto p-fluid lg:px-fluid">
