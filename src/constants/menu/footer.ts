@@ -1,12 +1,8 @@
 import { RiInstagramFill, RiLinkedinFill, RiTiktokFill } from "react-icons/ri";
 import { INSTAGRAM, LINKEDIN, TIKTOK } from "../sosmed";
+import { FooterMenuType } from "../../types/menu";
 
-type FooterMenu = {
-  url: string;
-  Svg: any;
-};
-
-export const footerMenu: Array<FooterMenu> = [
+export const footerMenu: Array<FooterMenuType> = [
   {
     url: INSTAGRAM.url,
     Svg: RiInstagramFill,

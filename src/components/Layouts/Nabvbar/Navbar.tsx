@@ -6,6 +6,7 @@ import {
   navbarContactMenu,
   navbarMainMenu,
 } from "../../../constants/menu/navbar";
+import { NavbarMenuType } from "../../../types/menu";
 
 function Navbar() {
   const brandMenu = navbarBrandMenu;
@@ -23,7 +24,7 @@ function Navbar() {
             {brandMenu.title}
           </Link>
         )}
-        {regularMenu.map((menu: any, index: number) => (
+        {regularMenu.map((menu: NavbarMenuType, index: number) => (
           <NavLink
             key={index}
             pathName={menu.pathName}

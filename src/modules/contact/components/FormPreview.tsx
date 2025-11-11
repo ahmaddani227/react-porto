@@ -1,14 +1,7 @@
 import CommentedContent from "../../../components/Layouts/Ide/CommentedContent";
+import { FormType } from "../types/form.type";
 
-type FormPreviewType = {
-  dataForm: {
-    name: string;
-    email: string;
-    message: string;
-  };
-};
-
-const FormPreview = ({ dataForm }: FormPreviewType) => {
+const FormPreview = ({ dataForm }: { dataForm: FormType }) => {
   const { name, email, message } = dataForm;
 
   const currentDate = new Date();

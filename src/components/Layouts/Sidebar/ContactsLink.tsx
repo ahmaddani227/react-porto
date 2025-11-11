@@ -1,12 +1,6 @@
-type ContactsLinkProps = {
-  data: {
-    title: string;
-    Svg: React.ElementType;
-    url: string;
-  };
-};
+import { ContactMenuItem } from "../../../types/menu";
 
-export default function ContactsLink({ data }: ContactsLinkProps) {
+export default function ContactsLink({ data }: { data: ContactMenuItem }) {
   const { title, url, Svg } = data;
   return (
     <a

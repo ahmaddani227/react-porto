@@ -1,28 +1,5 @@
 import { useState } from "react";
-
-interface Contribution {
-  date: string;
-  contributionCount: number;
-  color: string;
-}
-
-interface Month {
-  name: string;
-  firstDay: string;
-  totalWeeks: number;
-  contributionsCount: number;
-}
-
-interface CalendarProps {
-  data?: {
-    weeks: {
-      firstDay: string;
-      contributionDays: Contribution[];
-    }[];
-    months: Month[];
-    colors: string[];
-  };
-}
+import { CalendarProps, ContributionMonth } from "../../../../types/github";
 
 const Calender = ({ data }: CalendarProps) => {
   const [selectContribution, setSelectContribution] = useState<{
@@ -34,8 +11,8 @@ const Calender = ({ data }: CalendarProps) => {
   });
 
   const weeks = data?.weeks ?? [];
-  const months =
-    data?.months?.map((month: Month) => {
+  const months: ContributionMonth[] =
+    data?.months?.map((month) => {
       const filterContributionDay = weeks
         .filter(
           (week) => week.firstDay.slice(0, 7) === month.firstDay.slice(0, 7)

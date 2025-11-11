@@ -4,9 +4,10 @@ import { RiGithubFill } from "react-icons/ri";
 import Calender from "./Calender";
 import { GITHUB_ACCOUNTS } from "../../../../constants/github";
 import GithubStats from "./GithubStats";
+import { ContributionCalendar } from "../../../../types/github";
 
 const Contributions = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<ContributionCalendar | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -15,6 +16,30 @@ const Contributions = () => {
     }
     fetchData();
   }, []);
+
+  const statsData = data
+    ? {
+        totalContributions: data.totalContributions,
+        weeks: data.weeks,
+        months: data.months ?? [],
+      }
+    : undefined;
+
+  const calendarData: ContributionCalendar | undefined = data
+    ? {
+        weeks: data.weeks.map((week) => ({
+          firstDay: week.contributionDays[0]?.date ?? "",
+          contributionDays: week.contributionDays.map((d) => ({
+            date: d.date,
+            contributionCount: d.contributionCount,
+            color: d.color,
+          })),
+        })),
+        months: data.months ?? [],
+        colors: data.colors ?? [],
+        totalContributions: data.totalContributions,
+      }
+    : undefined;
 
   return (
     <div className="my-4">
@@ -33,8 +58,8 @@ const Contributions = () => {
           @{GITHUB_ACCOUNTS.username}
         </a>
       </div>
-      <GithubStats data={data} />
-      <Calender data={data} />
+      <GithubStats data={statsData} />
+      <Calender data={calendarData} />
     </div>
   );
 };

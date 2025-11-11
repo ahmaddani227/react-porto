@@ -5,8 +5,27 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply text-white bg-[#010C15] m-4 lg:m-[30px] font-fira;
+  }
+
+  html {
+    height: stretch;
+    width: stretch;
+  }
+
+  body {
+    height: stretch;
+    width: stretch;
+  }
+
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  #root {
+    @apply flex flex-col justify-between border rounded-lg border-midnight-slate bg-midnight-blue lg:h-full h-auto w-full;
+    min-height: stretch;
   }
 
   #content::-webkit-scrollbar {
@@ -37,7 +56,7 @@
 @layer components {
   /* Navigasi */
   .nav-link {
-    @apply flex items-center h-full border-b lg:border-b-0 px-fluid py-4 lg:py-0 lg:px-6 border-midnight-slate text-base lg:text-sm transition-all hover:bg-midnight-slate hover:text-white text-slate-muted;
+    @apply flex items-center h-auto border-b lg:border-b-0 px-fluid py-4 lg:py-0 lg:px-6 border-midnight-slate text-base lg:text-sm transition-all hover:bg-midnight-slate hover:text-white text-slate-muted;
   }
   .nav-active {
     @apply lg:border-b-2 lg:border-b-soft-orange text-white;

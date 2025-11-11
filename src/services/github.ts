@@ -5,8 +5,9 @@ import {
   GITHUB_ACCOUNTS,
   GITHUB_USER_QUERY,
 } from "../constants/github";
+import { ContributionCalendar } from "../types/github";
 
-export async function getGithubData() {
+export async function getGithubData(): Promise<ContributionCalendar> {
   const response = await axios.post(
     GITHUB_API_BASE_URL,
     {

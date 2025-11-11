@@ -7,6 +7,7 @@ import {
   navbarBrandMenu,
   navbarMenuMobile,
 } from "../../../constants/menu/navbar";
+import { NavbarMenuType } from "../../../types/menu";
 
 function MobileNavbar() {
   const brandMenu = navbarBrandMenu;
@@ -49,7 +50,7 @@ function MobileNavbar() {
 
       {isOpen && (
         <div className="absolute z-50 w-full min-h-screen top-16 bg-midnight-blue">
-          {regularMenu.map((menu: any, index: number) => (
+          {regularMenu.map((menu: NavbarMenuType, index: number) => (
             <NavLink
               key={index}
               classname={menu.classname}

@@ -6,7 +6,7 @@ import Codewars from "./Codewars";
 const Dashboard = () => {
   return (
     <Content>
-      <div className="px-6 py-5">
+      <div className="py-5 lg:px-[1.55rem] px-fluid">
         <div className="px-5 py-3.5 border rounded-md border-midnight-slate">
           <h5 className="mb-4 text-xs font-medium">ahmaddani / README.md</h5>
           <h1 className="mb-10 text-3xl font-semibold text-center">
