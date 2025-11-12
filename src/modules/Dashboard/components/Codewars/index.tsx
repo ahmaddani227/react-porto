@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCodewarsData } from "../../../../services/codewars";
 import StatsItem from "../Contributions/StatsItem";
 import { SiCodewars } from "react-icons/si";
+import StatsItemSkeleton from "../skeletons/StatsItemSkeleton";
 
 interface CodewarsData {
   honor: number;
@@ -28,8 +29,6 @@ const Codewars = () => {
     fetchData();
   }, []);
 
-  // if (!codewarsData) return <p>Loading...</p>;
-
   const {
     honor = 0,
     ranks = {} as CodewarsData["ranks"],
@@ -39,6 +38,15 @@ const Codewars = () => {
   const { overall = { rank: 0, score: 0 } } = ranks;
   const { rank = 0, score = 0 } = overall;
   const { totalCompleted = 0 } = codeChallenges;
+
+  if (!codewarsData)
+    return (
+      <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
+        {[...Array(4)].map((_, i) => (
+          <StatsItemSkeleton key={i} />
+        ))}
+      </div>
+    );
 
   return (
     <div className="my-4">

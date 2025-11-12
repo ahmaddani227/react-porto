@@ -51,6 +51,10 @@
   #contributions::-webkit-scrollbar {
     @apply hidden;
   }
+
+  #contributions-skeleton::-webkit-scrollbar {
+    @apply hidden;
+  }
 }
 
 @layer components {
