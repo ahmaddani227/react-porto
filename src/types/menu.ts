@@ -27,7 +27,7 @@ export type SidebarMenuItem = {
   id: string;
   title: string;
   type: string;
-  Svg?: IconType;
+  Svg: IconType;
   Content?: React.ElementType;
   classname: {
     fillIcon?: string; // Default "fill-[#81A1C1]"
@@ -37,7 +37,7 @@ export type SidebarMenuItem = {
 export type SidebarMenu = {
   id: string;
   title: string;
-  Svg?: IconType;
+  Svg: IconType;
   sidebarData: SidebarMenuItem[];
 };
 
