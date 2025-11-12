@@ -27,7 +27,7 @@ export type SidebarMenuItem = {
   id: string;
   title: string;
   type: string;
-  Svg?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  Svg?: React.ElementType;
   Content?: React.ElementType;
   classname: {
     fillIcon?: string; // Default "fill-[#81A1C1]"

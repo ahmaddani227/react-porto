@@ -12,15 +12,23 @@ const ActivityBar = ({
   return (
     <div className="hidden border-r border-midnight-slate lg:block">
       <div className="flex flex-col px-5 py-6 gap-y-6">
-        {sidebarAbout.map(({ id, Svg }) => (
-          <button key={id} onClick={() => setActiveActivityBar(id)}>
-            <Svg
-              className={`w-6 h-6 transition fill-slate-muted ${
-                activeActivityBar != id ? "opacity-40 hover:opacity-100" : ""
-              }`}
-            />
-          </button>
-        ))}
+        {sidebarAbout.map(({ id, Svg }) => {
+          const Icon = Svg; // alias biar jelas
+
+          return (
+            <button key={id} onClick={() => setActiveActivityBar(id)}>
+              {Icon ? (
+                <Icon
+                  className={`w-6 h-6 transition fill-slate-muted ${
+                    activeActivityBar !== id
+                      ? "opacity-40 hover:opacity-100"
+                      : ""
+                  }`}
+                />
+              ) : null}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
