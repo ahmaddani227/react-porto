@@ -5,14 +5,22 @@ import Calender from "./Calender";
 import { GITHUB_ACCOUNTS } from "../../../../constants/github";
 import GithubStats from "./GithubStats";
 import { ContributionCalendar } from "../../../../types/github";
+import StatsItemSkeleton from "../skeletons/StatsItemSkeleton";
 
 const Contributions = () => {
   const [data, setData] = useState<ContributionCalendar | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getGithubData();
-      setData(data);
+      try {
+        const res = await getGithubData();
+        setData(res);
+      } catch (err) {
+        console.error("Failed to fetch Github data:", err);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchData();
   }, []);
@@ -58,7 +66,19 @@ const Contributions = () => {
           @{GITHUB_ACCOUNTS.username}
         </a>
       </div>
-      <GithubStats data={statsData} />
+
+      {loading ? (
+        <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
+          {[...Array(4)].map((_, i) => (
+            <StatsItemSkeleton key={i} />
+          ))}
+        </div>
+      ) : (
+        <>
+          <GithubStats data={statsData} />
+        </>
+      )}
+
       <Calender data={calendarData} />
     </div>
   );
