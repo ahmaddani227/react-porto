@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CalendarProps, ContributionMonth } from "../../../../types/github";
 import CalendarSkeleton from "../skeletons/CalenderSkeleton";
+import { motion } from "motion/react";
 
 const Calender = ({ data }: CalendarProps) => {
   const [selectContribution, setSelectContribution] = useState<{
@@ -58,7 +59,7 @@ const Calender = ({ data }: CalendarProps) => {
 
           {/* Contribution Day */}
           <div className="flex gap-px md:gap-[3px]">
-            {weeks.map((week) => (
+            {weeks.map((week, weekIndex) => (
               <div
                 key={week.firstDay}
                 className="flex flex-col w-full gap-px md:gap-1"
@@ -66,8 +67,9 @@ const Calender = ({ data }: CalendarProps) => {
                 {week.contributionDays.map((contribution) => {
                   const backgroundColor =
                     contribution.contributionCount > 0 && contribution.color;
+                  const randomDelay = Math.random() * 0.6;
                   return (
-                    <span
+                    <motion.span
                       key={contribution.date}
                       style={backgroundColor ? { backgroundColor } : undefined}
                       className="aspect-square bg-midnight-slate rounded-[3.5px]"
@@ -80,6 +82,13 @@ const Calender = ({ data }: CalendarProps) => {
                       onMouseLeave={() =>
                         setSelectContribution({ count: null, date: null })
                       }
+                      initial={{ opacity: 0, scale: 0.3 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: randomDelay + weekIndex * 0.05,
+                        ease: "easeOut",
+                      }}
                     />
                   );
                 })}
