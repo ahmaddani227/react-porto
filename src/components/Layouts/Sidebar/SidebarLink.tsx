@@ -13,7 +13,7 @@ interface SidebarLinkProps {
     id: string;
     title: string;
     type: string;
-    Svg: IconType;
+    Svg?: IconType;
     classname: {
       fillIcon?: string;
     };
