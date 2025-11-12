@@ -1,5 +1,5 @@
 import { ElementType } from "react";
-import { IconType } from "react-icons";
+
 import {
   RiArrowRightSLine,
   RiFolder3Fill,
@@ -13,7 +13,7 @@ interface SidebarLinkProps {
     id: string;
     title: string;
     type: string;
-    Svg?: IconType;
+    Svg?: React.ElementType;
     classname: {
       fillIcon?: string;
     };

@@ -1,8 +1,6 @@
-import { IconType } from "react-icons";
-
 export type FooterMenuType = {
   url: string;
-  Svg: IconType;
+  Svg: React.ElementType;
 };
 
 export type NavbarMenuType = {
@@ -37,14 +35,14 @@ export type SidebarMenuItem = {
 export type SidebarMenu = {
   id: string;
   title: string;
-  Svg?: IconType;
+  Svg?: React.ElementType;
   sidebarData: SidebarMenuItem[];
 };
 
 export type Projects = {
   title: string;
   subtitle: string;
-  Svg: IconType;
+  Svg: React.ElementType;
   description: string;
   image: string;
   github: string;

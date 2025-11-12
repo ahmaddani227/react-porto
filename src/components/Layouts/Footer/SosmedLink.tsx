@@ -1,8 +1,6 @@
-import { IconType } from "react-icons";
-
 interface SosmedProps {
   url: string;
-  Svg: IconType;
+  Svg: React.ElementType;
   classname?: string;
   children?: React.ReactNode;
 }
