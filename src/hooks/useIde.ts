@@ -29,6 +29,7 @@ export const useIde = (
 
   const handleCloseTab = (e: React.MouseEvent, tabId: string) => {
     e.stopPropagation();
+    if (tabs.length === 1) return;
     setTabs((prev) => prev.filter((tab) => tab.id !== tabId));
     if (activeTab === tabId && tabs.length > 1) {
       setActiveTab(tabs[0]?.id);
