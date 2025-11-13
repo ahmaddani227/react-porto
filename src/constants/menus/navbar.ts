@@ -1,7 +1,9 @@
 import { NavbarMenuType } from "../../types/menu";
 
+export const me = "ahmad dani";
+
 export const navbarBrandMenu: NavbarMenuType = {
-  title: "ahmad dani",
+  title: me,
   pathName: "/",
   classname: "lg:min-w-[275px] lg:border-r",
 };

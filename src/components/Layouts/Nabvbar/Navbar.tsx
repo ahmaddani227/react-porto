@@ -5,7 +5,7 @@ import {
   navbarBrandMenu,
   navbarContactMenu,
   navbarMainMenu,
-} from "../../../constants/menu/navbar";
+} from "../../../constants/menus/navbar";
 import { NavbarMenuType } from "../../../types/menu";
 
 function Navbar() {

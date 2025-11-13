@@ -9,19 +9,19 @@ export type NavbarMenuType = {
   pathName: string;
 };
 
-export type ContactMenuItem = {
+export type ContactMenuItemType = {
   title: string;
   url: string;
   Svg: React.ElementType;
 };
 
-export type ContactsSidebar = {
+export type ContactsMenuType = {
   id: string;
   title: string;
-  contactsMenu: ContactMenuItem[];
+  contactsMenu: ContactMenuItemType[];
 };
 
-export type SidebarMenuItem = {
+export type SidebarMenuItemType = {
   id: string;
   title: string;
   type: string;
@@ -32,14 +32,14 @@ export type SidebarMenuItem = {
   };
 };
 
-export type SidebarMenu = {
+export type SidebarMenuType = {
   id: string;
   title: string;
   Svg?: React.ElementType;
-  sidebarData: SidebarMenuItem[];
+  sidebarData: SidebarMenuItemType[];
 };
 
-export type Projects = {
+export type ProjectsType = {
   title: string;
   subtitle: string;
   Svg: React.ElementType;

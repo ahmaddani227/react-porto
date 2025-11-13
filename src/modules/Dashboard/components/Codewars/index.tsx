@@ -39,15 +39,6 @@ const Codewars = () => {
   const { rank = 0, score = 0 } = overall;
   const { totalCompleted = 0 } = codeChallenges;
 
-  if (!codewarsData)
-    return (
-      <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
-        {[...Array(4)].map((_, i) => (
-          <StatsItemSkeleton key={i} />
-        ))}
-      </div>
-    );
-
   return (
     <div className="my-4">
       <div className="flex items-center gap-2 mb-2">
@@ -67,12 +58,20 @@ const Codewars = () => {
           @codewars
         </a>
       </div>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <StatsItem title="Honor" value={honor} />
-        <StatsItem title="Rank" value={Math.abs(rank)} />
-        <StatsItem title="Total Completed Kata" value={totalCompleted} />
-        <StatsItem title="Score" value={score} />
-      </div>
+      {!codewarsData ? (
+        <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
+          {[...Array(4)].map((_, i) => (
+            <StatsItemSkeleton key={i} />
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <StatsItem title="Honor" value={honor} />
+          <StatsItem title="Rank" value={Math.abs(rank)} />
+          <StatsItem title="Total Completed Kata" value={totalCompleted} />
+          <StatsItem title="Score" value={score} />
+        </div>
+      )}
     </div>
   );
 };

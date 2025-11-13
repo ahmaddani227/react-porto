@@ -10,7 +10,7 @@ import {
 import {
   Experience,
   HardSkills,
-  SoftSkills,
+  // SoftSkills,
   Bio,
   Education,
   HighSchool,
@@ -20,9 +20,9 @@ import {
   FavoriteGame,
 } from "../../modules/about/contents";
 import Dashboard from "../../modules/Dashboard";
-import { SidebarMenu } from "../../types/menu";
+import { SidebarMenuType } from "../../types/menu";
 
-export const sidebarAbout: SidebarMenu[] = [
+export const sidebarAbout: SidebarMenuType[] = [
   {
     id: "Profesional Info",
     title: "professional-info",
@@ -38,23 +38,23 @@ export const sidebarAbout: SidebarMenu[] = [
         },
       },
       {
-        id: "Hard Skills",
-        title: "hard-skills",
+        id: "Skills",
+        title: "skills",
         type: "folder",
         Content: HardSkills,
         classname: {
           fillIcon: "fill-mint-green",
         },
       },
-      {
-        id: "Soft Skills",
-        title: "soft-skills",
-        type: "folder",
-        Content: SoftSkills,
-        classname: {
-          fillIcon: "fill-[#3A49A4]",
-        },
-      },
+      // {
+      //   id: "Soft Skills",
+      //   title: "soft-skills",
+      //   type: "folder",
+      //   Content: SoftSkills,
+      //   classname: {
+      //     fillIcon: "fill-[#3A49A4]",
+      //   },
+      // },
       {
         id: "Dashboard",
         title: "dashboard",
@@ -145,7 +145,7 @@ export const sidebarAbout: SidebarMenu[] = [
   },
 ];
 
-export const sidebarProjects: SidebarMenu[] = [
+export const sidebarProjects: SidebarMenuType[] = [
   {
     id: "Projects",
     title: "projects",

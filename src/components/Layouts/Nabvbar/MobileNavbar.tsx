@@ -6,7 +6,7 @@ import NavLink from "./NavLink";
 import {
   navbarBrandMenu,
   navbarMenuMobile,
-} from "../../../constants/menu/navbar";
+} from "../../../constants/menus/navbar";
 import { NavbarMenuType } from "../../../types/menu";
 
 function MobileNavbar() {
