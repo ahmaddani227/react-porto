@@ -26,6 +26,7 @@ function Profile() {
           damping: 12,
           mass: 0.8,
           duration: 0.7,
+          delay: 0.8,
         }}
         whileHover={{
           scale: 1.03,
@@ -40,7 +41,7 @@ function Profile() {
           "Aspiring Full Stack Web Developer",
           "Information Systems Student",
         ]}
-        className="text-2xl text-mint-green lg:text-periwinkle-blue"
+        className="text-xl md:text-2xl text-mint-green lg:text-periwinkle-blue"
       />
 
       <div className="pt-16">

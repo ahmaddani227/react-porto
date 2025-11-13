@@ -9,7 +9,6 @@ import StatsItemSkeleton from "../skeletons/StatsItemSkeleton";
 
 const Contributions = () => {
   const [data, setData] = useState<ContributionCalendar | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -18,8 +17,6 @@ const Contributions = () => {
         setData(res);
       } catch (err) {
         console.error("Failed to fetch Github data:", err);
-      } finally {
-        setLoading(false);
       }
     }
     fetchData();
@@ -67,7 +64,7 @@ const Contributions = () => {
         </a>
       </div>
 
-      {loading ? (
+      {!data ? (
         <div className="grid grid-cols-2 grid-rows-2 gap-3 my-3 md:grid-cols-4 md:grid-rows-1">
           {[...Array(4)].map((_, i) => (
             <StatsItemSkeleton key={i} />

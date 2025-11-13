@@ -1,6 +1,6 @@
-import { ContactMenuItem } from "../../../types/menu";
+import { ContactMenuItemType } from "../../../types/menu";
 
-export default function ContactsLink({ data }: { data: ContactMenuItem }) {
+export default function ContactsLink({ data }: { data: ContactMenuItemType }) {
   const { title, url, Svg } = data;
   return (
     <a

@@ -16,7 +16,7 @@ const CommentedContent = ({
     if (textContainerRef.current) {
       const style = getComputedStyle(textContainerRef.current);
       //   const fontSize = parseInt(style.fontSize, 10);
-      const lineHeight = parseInt(style.lineHeight, 10);
+      const lineHeight = parseInt(style.lineHeight, 11);
       const maxHeight = textContainerRef.current.offsetHeight;
       setLines(Math.ceil(maxHeight / lineHeight) + (isCommented ? 1 : 0));
     }
@@ -34,7 +34,7 @@ const CommentedContent = ({
   }, []);
 
   return (
-    <div className="flex items-start font-fira">
+    <div className="flex items-start py-2 font-fira lg:px-4 px-fluid">
       {/* Number and command (*) */}
       <div
         className={`flex-col hidden ${

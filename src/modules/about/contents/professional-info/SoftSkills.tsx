@@ -1,19 +1,30 @@
-import CommentedContent from "../../../../components/Layouts/Ide/CommentedContent";
 import Content from "../../../../components/Layouts/Ide/Content";
+import ReadmeLayout from "../../../../components/Layouts/ReadmeLayout";
+import { SkillCardType, softSkills } from "../../../../constants/skills";
+
+const SkillCard = ({ Svg, label, style }: SkillCardType) => {
+  return (
+    <div
+      className={`flex flex-col items-center justify-center transition-all duration-300 border h-28 rounded-xl hover:shadow-md ${style.styleParent}`}
+    >
+      <Svg className={`w-10 h-10 ${style.styleChild}`} />
+      <h3 className="mt-3 text-sm font-medium">{label}</h3>
+    </div>
+  );
+};
 
 export default function SoftSkills() {
   return (
     <Content>
-      <div className="py-2 lg:px-4 px-fluid">
-        <CommentedContent>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque
-            porro sed cumque explicabo, pariatur ea quod reprehenderit! Vero
-            esse, laborum explicabo alias sed quis et cum? Voluptate nesciunt
-            doloribus ipsum?
-          </p>
-        </CommentedContent>
-      </div>
+      <ReadmeLayout>
+        <h1 className="my-5 text-xl font-semibold text-center">Soft Skills</h1>
+
+        <div className="grid grid-cols-2 gap-6 mb-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {softSkills.map((skill, index) => (
+            <SkillCard key={index} {...skill} />
+          ))}
+        </div>
+      </ReadmeLayout>
     </Content>
   );
 }

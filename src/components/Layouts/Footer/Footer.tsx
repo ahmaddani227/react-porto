@@ -1,8 +1,8 @@
 import { RiGithubFill } from "react-icons/ri";
 import FooterLayouts from "../FooterLayouts";
 import SosmedLink from "./SosmedLink";
-import { GITHUB } from "../../../constants/sosmed";
-import { footerMenu } from "../../../constants/menu/footer";
+import { GITHUB } from "../../../constants/me";
+import { footerMenu } from "../../../constants/menus/footer";
 import { FooterMenuType } from "../../../types/menu";
 
 function Footer() {

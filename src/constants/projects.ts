@@ -1,7 +1,7 @@
 import { SiFlutter, SiGatsby, SiReact } from "react-icons/si";
-import { Projects } from "../types/menu";
+import { ProjectsType } from "../types/menu";
 
-export const projects: Projects[] = [
+export const projects: ProjectsType[] = [
   {
     title: "Projects 1",
     subtitle: "_ui-animations",

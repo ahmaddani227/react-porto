@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { sidebarAbout } from "../../../constants/menu/sidebar";
+import { sidebarAbout } from "../../../constants/menus/sidebar";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
-import { contactsSidebar } from "../../../constants/menu/contacts";
+import { contactsSidebar } from "../../../constants/menus/contacts";
 import IDE from "../../../components/Layouts/Ide";
 import ActivityBar from "../../../components/Layouts/Sidebar/ActivityBar";
 import SidebarMenu from "../../../components/Layouts/Sidebar/SidebarMenu";

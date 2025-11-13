@@ -1,6 +1,6 @@
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import IDE from "../../../components/Layouts/Ide";
-import { sidebarProjects } from "../../../constants/menu/sidebar";
+import { sidebarProjects } from "../../../constants/menus/sidebar";
 import SidebarMenu from "../../../components/Layouts/Sidebar/SidebarMenu";
 import SidebarLink from "../../../components/Layouts/Sidebar/SidebarLink";
 import Content from "../../../components/Layouts/Ide/Content";

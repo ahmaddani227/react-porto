@@ -1,4 +1,4 @@
-import { sidebarAbout } from "../../../constants/menu/sidebar";
+import { sidebarAbout } from "../../../constants/menus/sidebar";
 
 interface ActivityBarProps {
   activeActivityBar: string;

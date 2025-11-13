@@ -1,6 +1,6 @@
 import IDE from "../../../components/Layouts/Ide";
 import SidebarMenu from "../../../components/Layouts/Sidebar/SidebarMenu";
-import { contacts } from "../../../constants/menu/contacts";
+import { contacts } from "../../../constants/menus/contacts";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import ContactsLink from "../../../components/Layouts/Sidebar/ContactsLink";
 import Content from "../../../components/Layouts/Ide/Content";
