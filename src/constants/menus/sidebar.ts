@@ -1,8 +1,5 @@
 import {
   RiDashboardLine,
-  RiGamepadFill,
-  RiHtml5Fill,
-  RiReactjsFill,
   RiTerminalBoxFill,
   RiUser4Fill,
 } from "react-icons/ri";
@@ -13,11 +10,7 @@ import {
   // SoftSkills,
   Bio,
   Education,
-  HighSchool,
   Interest,
-  University,
-  Sports,
-  FavoriteGame,
 } from "../../modules/about/contents";
 import Dashboard from "../../modules/Dashboard";
 import { SidebarMenuType } from "../../types/menu";
@@ -98,51 +91,51 @@ export const sidebarAbout: SidebarMenuType[] = [
           fillIcon: "fill-[#3A49A4]",
         },
       },
-      {
-        id: "High School",
-        title: "high-school",
-        type: "file",
-        Content: HighSchool,
-        classname: {
-          fillIcon: "fill-[#81A1C1]",
-        },
-      },
-      {
-        id: "University",
-        title: "university",
-        type: "file",
-        Content: University,
-        classname: {
-          fillIcon: "fill-[#81A1C1]",
-        },
-      },
+      // {
+      //   id: "High School",
+      //   title: "high-school",
+      //   type: "file",
+      //   Content: HighSchool,
+      //   classname: {
+      //     fillIcon: "fill-[#81A1C1]",
+      //   },
+      // },
+      // {
+      //   id: "University",
+      //   title: "university",
+      //   type: "file",
+      //   Content: University,
+      //   classname: {
+      //     fillIcon: "fill-[#81A1C1]",
+      //   },
+      // },
     ],
   },
-  {
-    id: "Hobbies Info",
-    title: "hobbies-info",
-    Svg: RiGamepadFill,
-    sidebarData: [
-      {
-        id: "Sports",
-        title: "sports",
-        type: "folder",
-        Content: Sports,
-        classname: {
-          fillIcon: "fill-peach",
-        },
-      },
-      {
-        id: "Favorite Game",
-        title: "favorite-game",
-        type: "folder",
-        Content: FavoriteGame,
-        classname: {
-          fillIcon: "fill-mint-green",
-        },
-      },
-    ],
-  },
+  // {
+  //   id: "Hobbies Info",
+  //   title: "hobbies-info",
+  //   Svg: RiGamepadFill,
+  //   sidebarData: [
+  //     {
+  //       id: "Sports",
+  //       title: "sports",
+  //       type: "folder",
+  //       Content: Sports,
+  //       classname: {
+  //         fillIcon: "fill-peach",
+  //       },
+  //     },
+  //     {
+  //       id: "Favorite Game",
+  //       title: "favorite-game",
+  //       type: "folder",
+  //       Content: FavoriteGame,
+  //       classname: {
+  //         fillIcon: "fill-mint-green",
+  //       },
+  //     },
+  //   ],
+  // },
 ];
 
 export const sidebarProjects: SidebarMenuType[] = [
@@ -159,24 +152,24 @@ export const sidebarProjects: SidebarMenuType[] = [
           fillIcon: "fill-midnight-slate",
         },
       },
-      {
-        id: "React",
-        title: "react",
-        Svg: RiReactjsFill,
-        type: "checkbox",
-        classname: {
-          fillIcon: "fill-midnight-slate",
-        },
-      },
-      {
-        id: "Html",
-        title: "html",
-        Svg: RiHtml5Fill,
-        type: "checkbox",
-        classname: {
-          fillIcon: "fill-midnight-slate",
-        },
-      },
+      // {
+      //   id: "React",
+      //   title: "react",
+      //   Svg: RiReactjsFill,
+      //   type: "checkbox",
+      //   classname: {
+      //     fillIcon: "fill-midnight-slate",
+      //   },
+      // },
+      // {
+      //   id: "NextJS",
+      //   title: "nextjs",
+      //   Svg: RiNextjsFill,
+      //   type: "checkbox",
+      //   classname: {
+      //     fillIcon: "fill-midnight-slate",
+      //   },
+      // },
     ],
   },
 ];
