@@ -41,7 +41,7 @@ function Profile() {
           "Aspiring Full Stack Web Developer",
           "Information Systems Student",
         ]}
-        className="text-xl md:text-2xl text-mint-green lg:text-periwinkle-blue"
+        className="text-xl md:text-xxl text-mint-green lg:text-periwinkle-blue"
       />
 
       <div className="pt-16">

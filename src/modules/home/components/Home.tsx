@@ -1,5 +1,5 @@
+import CodeSnippet from "./CodeSnippet";
 import Profile from "./Profile";
-import Snake from "./Snake";
 
 const CircleBlur = ({ classname }: { classname: string }) => {
   return <div className={classname} />;
@@ -16,7 +16,7 @@ function Home() {
       <div className="w-full h-auto p-fluid lg:px-fluid">
         <div className="flex items-center justify-between h-full">
           <Profile />
-          <Snake />
+          <CodeSnippet />
         </div>
       </div>
     </section>
