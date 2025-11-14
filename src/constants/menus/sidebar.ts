@@ -1,7 +1,5 @@
 import {
   RiDashboardLine,
-  RiHtml5Fill,
-  RiReactjsFill,
   RiTerminalBoxFill,
   RiUser4Fill,
 } from "react-icons/ri";
@@ -154,24 +152,24 @@ export const sidebarProjects: SidebarMenuType[] = [
           fillIcon: "fill-midnight-slate",
         },
       },
-      {
-        id: "React",
-        title: "react",
-        Svg: RiReactjsFill,
-        type: "checkbox",
-        classname: {
-          fillIcon: "fill-midnight-slate",
-        },
-      },
-      {
-        id: "Html",
-        title: "html",
-        Svg: RiHtml5Fill,
-        type: "checkbox",
-        classname: {
-          fillIcon: "fill-midnight-slate",
-        },
-      },
+      // {
+      //   id: "React",
+      //   title: "react",
+      //   Svg: RiReactjsFill,
+      //   type: "checkbox",
+      //   classname: {
+      //     fillIcon: "fill-midnight-slate",
+      //   },
+      // },
+      // {
+      //   id: "NextJS",
+      //   title: "nextjs",
+      //   Svg: RiNextjsFill,
+      //   type: "checkbox",
+      //   classname: {
+      //     fillIcon: "fill-midnight-slate",
+      //   },
+      // },
     ],
   },
 ];
